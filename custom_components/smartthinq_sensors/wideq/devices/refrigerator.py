@@ -655,7 +655,15 @@ class RefrigeratorStatus(DeviceStatus):
     @property
     def active_saving_status(self):
         """Return current active saving status."""
-        return self._data.get("ActiveSavingStatus", "N/A")
+        return self._data.get("ActiveSavingStatus", "N/A")    
+    
+    @property
+    def food_poison_index(self):
+        """Ritorna l'indice dal JSON grezzo."""
+        if self.is_info_v2:
+            # Usiamo .get per evitare errori se la chiave manca
+            return self.to_int_or_none(self._data.get("foodPoisonIndex"))
+        return None
 
     def _update_features(self):
         _ = [

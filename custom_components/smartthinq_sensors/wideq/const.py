@@ -110,7 +110,7 @@ class RefrigeratorFeatures(StrEnum):
     SMARTSAVINGMODE = "smart_saving_mode"
     WATERFILTERUSED_MONTH = "water_filter_used_month"
     WATERFILTER_REMAIN_PERC = "water_filter_remain_perc"
-
+    FOOD_POISON_INDEX = "food_poison_index"
 
 class WashDeviceFeatures(StrEnum):
     """Features for LG Wash devices."""

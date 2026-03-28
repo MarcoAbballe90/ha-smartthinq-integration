@@ -219,6 +219,13 @@ REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=PERCENTAGE,
     ),
+    ThinQSensorEntityDescription(
+        key=RefrigeratorFeatures.FOOD_POISON_INDEX,
+        name="Food poison index",
+        icon="mdi:bacteria",
+        native_unit_of_measurement="pt",
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
 )
 AC_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
@@ -559,7 +566,6 @@ COMMON_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ),
 )
 
-
 def _sensor_exist(
     lge_device: LGEDevice, sensor_desc: ThinQSensorEntityDescription
 ) -> bool:
@@ -572,7 +578,6 @@ def _sensor_exist(
         return True
 
     return False
-
 
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
@@ -633,7 +638,6 @@ async def async_setup_entry(
         "async_set_time",
         [SUPPORT_SET_TIME],
     )
-
 
 class LGESensor(CoordinatorEntity, SensorEntity):
     """Class to monitor sensors for LGE device"""

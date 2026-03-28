@@ -25,6 +25,7 @@ ATTR_DOOR_OPEN = "door_open"
 ATTR_FRIDGE_TEMP = "fridge_temp"
 ATTR_FREEZER_TEMP = "freezer_temp"
 ATTR_TEMP_UNIT = "temp_unit"
+FOOD_POISON_INDEX = "food_poison_index"
 
 # range sensor attributes
 ATTR_OVEN_LOWER_TARGET_TEMP = "oven_lower_target_temp"

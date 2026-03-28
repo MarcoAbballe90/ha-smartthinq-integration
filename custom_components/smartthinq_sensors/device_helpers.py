@@ -23,6 +23,7 @@ from .const import (
     ATTR_START_TIME,
     ATTR_TEMP_UNIT,
     DEFAULT_SENSOR,
+    FOOD_POISON_INDEX,
 )
 from .wideq import WM_DEVICE_TYPES, DeviceType, StateOptions, TemperatureUnit
 
@@ -287,6 +288,14 @@ class LGERefrigeratorDevice(LGEBaseDevice):
             state = self._api.state.door_opened_state
             return STATE_LOOKUP.get(state, STATE_OFF)
         return STATE_OFF
+    
+    @property
+    def food_poison_index(self):
+        """Ponte verso lo stato reale."""
+        # In questa classe lo stato è accessibile tramite self._api.state
+        if not self._api.state:
+            return None
+        return self._api.state.food_poison_index
 
     @property
     def extra_state_attributes(self):
@@ -296,6 +305,7 @@ class LGERefrigeratorDevice(LGEBaseDevice):
             ATTR_FREEZER_TEMP: self.temp_freezer,
             ATTR_TEMP_UNIT: self.temp_unit,
             ATTR_DOOR_OPEN: self.dooropen_state,
+            FOOD_POISON_INDEX: self.dooropen_state,
         }
         features = super().extra_state_attributes
         data.update(features)
