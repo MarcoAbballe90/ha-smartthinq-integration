@@ -81,7 +81,6 @@ SUPPORT_SET_TIME = 2
 
 _LOGGER = logging.getLogger(__name__)
 
-
 @dataclass
 class ThinQSensorEntityDescription(SensorEntityDescription):
     """A class that describes ThinQ sensor entities."""
@@ -89,7 +88,6 @@ class ThinQSensorEntityDescription(SensorEntityDescription):
     unit_fn: Callable[[Any], str] | None = None
     value_fn: Callable[[Any], float | str] | None = None
     feature_attributes: dict[str, str] | None = None
-
 
 WASH_DEV_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
@@ -183,6 +181,7 @@ WASH_DEV_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
     ),
 )
+
 REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=DEFAULT_SENSOR,
@@ -220,13 +219,15 @@ REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         native_unit_of_measurement=PERCENTAGE,
     ),
     ThinQSensorEntityDescription(
-        key=RefrigeratorFeatures.FOOD_POISON_INDEX,
-        name="Food poison index",
+        key="food_poison_index",
+        name="Indice rischio cibo",
         icon="mdi:bacteria",
-        native_unit_of_measurement="pt",
         state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement="pt",
+        value_fn=lambda x: x.food_poison_index,
     ),
 )
+
 AC_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=AirConditionerFeatures.ROOM_TEMP,
@@ -313,6 +314,7 @@ AC_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfTime.MINUTES,
     ),
 )
+
 RANGE_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=DEFAULT_SENSOR,
@@ -400,6 +402,7 @@ RANGE_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         unit_fn=lambda x: x.oven_temp_unit,
     ),
 )
+
 AIR_PURIFIER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=AirPurifierFeatures.HUMIDITY,
@@ -485,6 +488,7 @@ AIR_PURIFIER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         },
     ),
 )
+
 DEHUMIDIFIER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=DehumidifierFeatures.HUMIDITY,
@@ -502,6 +506,7 @@ DEHUMIDIFIER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
     ),
 )
+
 WATER_HEATER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=WaterHeaterFeatures.HOT_WATER_TEMP,
@@ -519,6 +524,7 @@ WATER_HEATER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfPower.WATT,
     ),
 )
+
 HOOD_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=DEFAULT_SENSOR,
@@ -526,6 +532,7 @@ HOOD_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         value_fn=lambda x: x.power_state,
     ),
 )
+
 MICROWAVE_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=DEFAULT_SENSOR,

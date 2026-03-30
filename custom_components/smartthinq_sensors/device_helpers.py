@@ -57,7 +57,6 @@ WASH_DEVICE_TYPES = [
     DeviceType.STYLER,
 ]
 
-
 def get_entity_name(device: LGEDevice, ent_key: str) -> str | None:
     """Get the name for the entity"""
     if ent_key == DEFAULT_SENSOR:
@@ -69,7 +68,6 @@ def get_entity_name(device: LGEDevice, ent_key: str) -> str | None:
         name = feat_name.replace("_", " ").capitalize()
 
     return name
-
 
 class LGEBaseDevice:
     """A wrapper to monitor LGE devices"""
@@ -138,7 +136,8 @@ class LGEBaseDevice:
     @property
     def extra_state_attributes(self):
         """Return the optional state attributes."""
-        return self.get_features_attributes()
+        """return self.get_features_attributes()"""
+        return {} 
 
 
 class LGEWashDevice(LGEBaseDevice):
@@ -255,7 +254,6 @@ class LGEWashDevice(LGEBaseDevice):
 
         return data
 
-
 class LGERefrigeratorDevice(LGEBaseDevice):
     """A wrapper to monitor LGE Refrigerator devices"""
 
@@ -312,7 +310,6 @@ class LGERefrigeratorDevice(LGEBaseDevice):
 
         return data
 
-
 class LGETempDevice(LGEBaseDevice):
     """A wrapper to monitor LGE devices that support temperature unit."""
 
@@ -321,7 +318,6 @@ class LGETempDevice(LGEBaseDevice):
         """Return device temperature unit."""
         unit = self._api.device.temperature_unit
         return TEMP_UNIT_LOOKUP.get(unit, UnitOfTemperature.CELSIUS)
-
 
 class LGERangeDevice(LGEBaseDevice):
     """A wrapper to monitor LGE range devices"""
@@ -376,7 +372,6 @@ class LGERangeDevice(LGEBaseDevice):
         data.update(features)
 
         return data
-
 
 def get_wrapper_device(
     lge_device: LGEDevice, dev_type: DeviceType

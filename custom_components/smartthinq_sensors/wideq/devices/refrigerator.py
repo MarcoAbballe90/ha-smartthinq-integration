@@ -643,6 +643,19 @@ class RefrigeratorStatus(DeviceStatus):
             False,
             FEATURE_KEY_IGNORE,
         )
+    
+    @property
+    def food_poison_index(self):
+        """Return current food poison index."""
+        if not self.is_info_v2:
+            return None
+
+        val = self._data.get("foodPoisonIndex")
+        _LOGGER.debug("CL@food_poison_index: %s", str(val))
+        if val is None:
+            return None
+
+        return self.to_int_or_none(val)
 
     @property
     def locked_state(self):

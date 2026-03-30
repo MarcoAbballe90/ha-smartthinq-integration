@@ -141,14 +141,12 @@ MICROWAVE_SWITCH: tuple[ThinQSwitchEntityDescription, ...] = (
     ),
 )
 
-
 SWITCH_ENTITIES = {
     DeviceType.AC: AC_SWITCH,
     DeviceType.MICROWAVE: MICROWAVE_SWITCH,
     DeviceType.REFRIGERATOR: REFRIGERATOR_SWITCH,
     **{dev_type: WASH_DEV_SWITCH for dev_type in WM_DEVICE_TYPES},
 }
-
 
 def _switch_exist(
     lge_device: LGEDevice, switch_desc: ThinQSwitchEntityDescription

@@ -1,0 +1,24 @@
+aggiungere in smartthinq_sensors > wideq > devices > {device}.py
+
+@property
+def {property_name}(self):
+    """Return current {property}."""
+    if not self.is_info_v2:
+        return None
+
+    val = self._data.get("{property_key}")
+    if val is None:
+        return None
+
+    return self.to_int_or_none(val)
+
+aggiungere in smartthinq_sensors > {sensor_type}.py
+
+ThinQSensorEntityDescription(
+    key="{property_name}",
+    name="{friendly_name}",
+    icon="{icon}",
+    state_class={state_class},
+    native_unit_of_measurement="{unit_of_measurement}",
+    value_fn=lambda x: x.{property_name},
+),
