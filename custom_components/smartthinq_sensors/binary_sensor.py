@@ -170,27 +170,19 @@ WASH_DEV_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
     ),
 )
+RANGE_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
+    ThinQBinarySensorEntityDescription(
+        key="remote_start_enabled",
+        name="Avvio remoto",
+        value_fn=lambda x: x.remote_start_enabled,
+    ),
+)
 REFRIGERATOR_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ThinQBinarySensorEntityDescription(
         key=ATTR_DOOR_OPEN,
         name="Door open",
         device_class=BinarySensorDeviceClass.DOOR,
         value_fn=lambda x: x.dooropen_state,
-    ),
-)
-RANGE_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
-    ThinQBinarySensorEntityDescription(
-        key=ATTR_COOKTOP_STATE,
-        name="Cooktop state",
-        device_class=BinarySensorDeviceClass.POWER,
-        value_fn=lambda x: x.cooktop_state,
-    ),
-    ThinQBinarySensorEntityDescription(
-        key=ATTR_OVEN_STATE,
-        name="Oven state",
-        device_class=BinarySensorDeviceClass.POWER,
-        value_fn=lambda x: x.oven_state,
-        entity_registry_enabled_default=False,
     ),
 )
 DEHUMIDIFIER_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
@@ -206,7 +198,6 @@ BINARY_SENSOR_ENTITIES = {
     DeviceType.REFRIGERATOR: REFRIGERATOR_BINARY_SENSORS,
     **{dev_type: WASH_DEV_BINARY_SENSORS for dev_type in WASH_DEVICE_TYPES},
 }
-
 
 def _binary_sensor_exist(
     lge_device: LGEDevice, sensor_desc: ThinQBinarySensorEntityDescription

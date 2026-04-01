@@ -56,7 +56,6 @@ class DeviceType(Enum):
     HOMEROBOT = 9000
     UNKNOWN = StateOptions.UNKNOWN
 
-
 WM_DEVICE_TYPES = [
     DeviceType.DRYER,
     DeviceType.TOWER_DRYER,
@@ -71,14 +70,12 @@ SET_TIME_DEVICE_TYPES = [
     DeviceType.MICROWAVE,
 ]
 
-
 class PlatformType(Enum):
     """The category of device."""
 
     THINQ1 = "thinq1"
     THINQ2 = "thinq2"
     UNKNOWN = StateOptions.UNKNOWN
-
 
 class NetworkType(Enum):
     """The type of network."""
@@ -87,7 +84,6 @@ class NetworkType(Enum):
     NFC3 = "03"
     NFC4 = "04"
     UNKNOWN = StateOptions.UNKNOWN
-
 
 class DeviceInfo:
     """
@@ -164,7 +160,14 @@ class DeviceInfo:
     @property
     def model_name(self) -> str:
         """Return the model name for the device."""
-        return self._get_data_value(["modelName", "modelNm"])
+        name = self._get_data_value(["modelName", "modelNm"])
+        match name:
+            case "2REFT1DII4P_U":
+                return "GML960PYBE"
+            case "Y_VB_Y___W.B32QEUK":
+                return "F4R3710NSWW"
+            case _:
+                return name
 
     @property
     def macaddress(self) -> str | None:

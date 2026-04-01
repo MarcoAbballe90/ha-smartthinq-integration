@@ -7,6 +7,7 @@ from datetime import time
 import logging
 from typing import Any, Callable
 
+from custom_components.smartthinq_sensors.wideq.const import RangeFeatures
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
@@ -37,8 +38,6 @@ from .const import (
     ATTR_FREEZER_TEMP,
     ATTR_FRIDGE_TEMP,
     ATTR_INITIAL_TIME,
-    ATTR_OVEN_LOWER_TARGET_TEMP,
-    ATTR_OVEN_UPPER_TARGET_TEMP,
     ATTR_REMAIN_TIME,
     ATTR_RESERVE_TIME,
     DEFAULT_ICON,
@@ -62,7 +61,6 @@ from .wideq import (
     DehumidifierFeatures,
     DeviceType,
     MicroWaveFeatures,
-    RangeFeatures,
     RefrigeratorFeatures,
     WashDeviceFeatures,
     WaterHeaterFeatures,
@@ -322,84 +320,42 @@ RANGE_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         value_fn=lambda x: x.power_state,
     ),
     ThinQSensorEntityDescription(
-        key=RangeFeatures.COOKTOP_LEFT_FRONT_STATE,
-        name="Cooktop left front state",
-        icon="mdi:arrow-left-bold-box-outline",
-        entity_registry_enabled_default=False,
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.COOKTOP_LEFT_REAR_STATE,
-        name="Cooktop left rear state",
-        icon="mdi:arrow-left-bold-box",
-        entity_registry_enabled_default=False,
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.COOKTOP_CENTER_STATE,
-        name="Cooktop center state",
-        icon="mdi:minus-box-outline",
-        entity_registry_enabled_default=False,
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.COOKTOP_RIGHT_FRONT_STATE,
-        name="Cooktop right front state",
-        icon="mdi:arrow-right-bold-box-outline",
-        entity_registry_enabled_default=False,
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.COOKTOP_RIGHT_REAR_STATE,
-        name="Cooktop right rear state",
-        icon="mdi:arrow-right-bold-box",
-        entity_registry_enabled_default=False,
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.OVEN_LOWER_STATE,
-        name="Oven lower state",
-        icon="mdi:inbox-arrow-down",
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.OVEN_LOWER_MODE,
-        name="Oven lower mode",
-        icon="mdi:inbox-arrow-down",
-    ),
-    ThinQSensorEntityDescription(
-        key=RangeFeatures.OVEN_UPPER_STATE,
-        name="Oven upper state",
+        key=RangeFeatures.OVEN_STATE,
+        name="Stato",
         icon="mdi:inbox-arrow-up",
     ),
     ThinQSensorEntityDescription(
-        key=RangeFeatures.OVEN_UPPER_MODE,
-        name="Oven upper mode",
+        key=RangeFeatures.OVEN_MODE,
+        name="Programma",
         icon="mdi:inbox-arrow-up",
     ),
     ThinQSensorEntityDescription(
-        key=ATTR_OVEN_LOWER_TARGET_TEMP,
-        name="Oven lower target temperature",
+        key="oven_target_temp",
+        name="Temperatura desiderata",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         unit_fn=lambda x: x.oven_temp_unit,
-        value_fn=lambda x: x.oven_lower_target_temp,
+        value_fn=lambda x: x.oven_target_temp,
     ),
     ThinQSensorEntityDescription(
-        key=RangeFeatures.OVEN_LOWER_CURRENT_TEMP,
-        name="Oven lower current temperature",
+        key="oven_current_temp",
+        name="Temperatura corrente",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.TEMPERATURE,
         unit_fn=lambda x: x.oven_temp_unit,
+        value_fn=lambda x: x.oven_current_temp,
     ),
     ThinQSensorEntityDescription(
-        key=ATTR_OVEN_UPPER_TARGET_TEMP,
-        name="Oven upper target temperature",
-        state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.TEMPERATURE,
-        unit_fn=lambda x: x.oven_temp_unit,
-        value_fn=lambda x: x.oven_upper_target_temp,
+        key="oven_cook_time",
+        name="Tempo trascorso",
+        icon="mdi:clock-outline",
+        value_fn=lambda x: x.oven_cook_time,
     ),
     ThinQSensorEntityDescription(
-        key=RangeFeatures.OVEN_UPPER_CURRENT_TEMP,
-        name="Oven upper current temperature",
-        state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.TEMPERATURE,
-        unit_fn=lambda x: x.oven_temp_unit,
+        key="oven_timer",
+        name="Timer impostato",
+        icon="mdi:clock-outline",
+        value_fn=lambda x: x.oven_timer,
     ),
 )
 
@@ -577,10 +533,12 @@ def _sensor_exist(
     lge_device: LGEDevice, sensor_desc: ThinQSensorEntityDescription
 ) -> bool:
     """Check if a sensor exist for device."""
+    _LOGGER.debug("DEFINE SENSOR (sensor_desc): %s", sensor_desc.key)
+    _LOGGER.debug("DEFINE SENSOR (value_fn): %s", sensor_desc.value_fn)
     if sensor_desc.value_fn is not None:
         return True
-
     feature = sensor_desc.key
+    _LOGGER.debug("DEFINE SENSOR (lge_device.available_features): %s", lge_device.available_features)
     if feature in lge_device.available_features:
         return True
 

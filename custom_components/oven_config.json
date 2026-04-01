@@ -1,0 +1,2960 @@
+{
+	"Info": {
+		"productType": "301",
+		"country": "US",
+		"modelType": "Oven",
+		"model": "EU_GOOD",
+		"modelName": "WSED7613S",
+		"networkType": "WIFI",
+		"version": "4.3"
+	},
+	"Module": {
+		"WPM": {
+			"GOM_CEN01_Main": "204",
+			"GOM_TIM01_Main": "201",
+			"GUG_CEN03": "001",
+			"GOM_CCH01_Main": "001",
+			"GOM_CCH02_SelectEasyClean": "001",
+			"GOM_CCH03_CheckSaving": "001",
+			"GUG_CCH01": "001",
+			"GCM_SDS01_SdsMain": "001",
+			"GOM_SET01_Main": "201",
+			"GOM_SET02_PushList": "201",
+			"GOM_SET03_SupportVideo": "001",
+			"GOM_SET04_ProdSetting": "201",
+			"GOM_SET05_Vent": "001",
+			"GUG_SET01": "001",
+			"GOM_FOT01_Main": "201"
+		},
+		"Menu": [
+			"GCM_SDS01_SdsMain",
+			"GOM_SET01_Main"
+		]
+	},
+	"Config": {
+		"OvenType": "Signature",
+		"ModelType": "UPPER",
+		"energySavingUnit": "Wh",
+		"dashboardDisplayType": "TYPE_1_ITEM",
+		"dashboardDisplaySubType": "UPPER",
+		"cooktopInvisible": false,
+		"blackBox": "Y",
+		"fota": true,
+		"cooktimeEnable": true,
+		"thinqVersion": 2,
+		"continuousRemote": true,
+		"easyRemote": true,
+		"scanToCook": true,
+		"targetTime": true,
+		"preferenceMonitoring": true,
+		"useRemoteGuide": true,
+		"mustSetCookTime": true,
+		"remoteGuideType": "TYPE4",
+		"useValueLabelOnPreferenceHourMode": true
+	},
+	"ControlWifi": {
+		"type": "JSON",
+		"action": {
+			"SetCookStart": {
+				"command": "Set",
+				"data": {
+					"ovenState": {
+						"cmdOptionContentsType": "",
+						"cmdOptionDataLength": "",
+						"cmdOptionSetCookName": "CookMode",
+						"cmdOptionSetSubCookNumber": "SubCookMode",
+						"cmdOptionSetMyRecipeCookNumber": "CookNum",
+						"cmdOptionSetTargetTemperatureUnit": "TempUnit",
+						"setTargetTemperature": "OvenTemp",
+						"cmdOptionSetTargetTimeHour": "CookTime",
+						"cmdOptionSetTargetTimeMinute": "CookTime",
+						"setTargetProveTemperature": "ProbeTemp",
+						"cmdOptionSetCookAndWarm": ""
+					}
+				}
+			},
+			"SetCookStop": {
+				"command": "Set",
+				"data": {
+					"ovenState": {
+						"cmdOptionCookStop": ""
+					}
+				}
+			},
+			"SetTimer": {
+				"command": "Set",
+				"data": {
+					"ovenState": {
+						"cmdOptionContentsType": "",
+						"cmdOptionDataLength": "",
+						"upperTimerSecond": "",
+						"upperTimerMinute": "",
+						"upperTimerHour": "",
+						"lowerTimerSecond": "",
+						"lowerTimerMinute": "",
+						"lowerTimerHour": ""
+					}
+				}
+			},
+			"SetPreference": {
+				"command": "Set",
+				"data": {
+					"ovenState": {
+						"cmdOptionContentsType": "",
+						"cmdOptionDataLength": "",
+						"settingOvenClockTimeHour": "",
+						"settingOvenClockTimeMinute": "",
+						"settingHourMode": "",
+						"settingConvAutoConversion": "",
+						"settingAdjustUnit": "",
+						"settingAdjustUpperTempValue": "",
+						"settingAdjustLowerTempValue": "",
+						"settingPreheatAlarm": "",
+						"settingBeepVolume": "",
+						"settingOvenTempUnit": "",
+						"settingLanguage": "",
+						"settingCooktopAlarmCooktopTimerMIN": "",
+						"settingCooktopBeepVolume": "",
+						"settingAutoRemoteSet": "",
+						"settingInstaViewSet": ""
+					}
+				}
+			},
+			"ScanToCook": {
+				"command": "Set",
+				"data": {
+					"ovenState": {
+						"cmdOptionContentsType": "SCAN_TO_COOK",
+						"cmdOptionDataLength": "SCAN_TO_COOK",
+						"cmdOptionSetCookAndWarm": "NULL",
+						"commonMyRecipeSetFlag": "NULL",
+						"preheatFlag": "NULL",
+						"cmdOptionSetMyRecipeCookNumber": "NULL",
+						"cmdOptionSetCookName1": "NULL",
+						"cmdOptionSetSubCookNumber1": "NULL",
+						"cmdOptionSetTargetTemperatureUnit1": "NULL",
+						"setTargetTemperature1": "NULL",
+						"cmdOptionSetTargetTimeHour1": "NULL",
+						"cmdOptionSetTargetTimeMinute1": "NULL",
+						"TimeFlag1": "NULL",
+						"StageBeepFlag1": "NULL",
+						"cmdOptionSetCookName2": "NULL",
+						"cmdOptionSetSubCookNumber2": "NULL",
+						"cmdOptionSetTargetTemperatureUnit2": "NULL",
+						"setTargetTemperature2": "NULL",
+						"cmdOptionSetTargetTimeHour2": "NULL",
+						"cmdOptionSetTargetTimeMinute2": "NULL",
+						"TimeFlag2": "NULL",
+						"StageBeepFlag2": "NULL",
+						"cmdOptionSetCookName3": "NULL",
+						"cmdOptionSetSubCookNumber3": "NULL",
+						"cmdOptionSetTargetTemperatureUnit3": "NULL",
+						"setTargetTemperature3": "NULL",
+						"cmdOptionSetTargetTimeHour3": "NULL",
+						"cmdOptionSetTargetTimeMinute3": "NULL",
+						"TimeFlag3": "NULL",
+						"StageBeepFlag3": "NULL",
+						"cmdOptionSetCookName4": "NULL",
+						"cmdOptionSetSubCookNumber4": "NULL",
+						"cmdOptionSetTargetTemperatureUnit4": "NULL",
+						"setTargetTemperature4": "NULL",
+						"cmdOptionSetTargetTimeHour4": "NULL",
+						"cmdOptionSetTargetTimeMinute4": "NULL",
+						"TimeFlag4": "NULL",
+						"StageBeepFlag4": "NULL",
+						"cmdOptionSetCookName5": "NULL",
+						"cmdOptionSetSubCookNumber5": "NULL",
+						"cmdOptionSetTargetTemperatureUnit5": "NULL",
+						"setTargetTemperature5": "NULL",
+						"cmdOptionSetTargetTimeHour5": "NULL",
+						"cmdOptionSetTargetTimeMinute5": "NULL",
+						"TimeFlag5": "NULL",
+						"StageBeepFlag5": "NULL"
+					}
+				}
+			},
+			"SetCookTopTimer": {
+				"command": "Set",
+				"data": {
+					"ovenState": {
+						"cmdOptionContentsType": "",
+						"cmdOptionDataLength": "",
+						"controlSelectedBurner": "",
+						"controlPowerLevel": "",
+						"controlTimerHour": "",
+						"controlTimerMin": "",
+						"controlTimerSec": "",
+						"reservedValue2": "",
+						"reservedValue3": "",
+						"reservedValue4": ""
+					}
+				}
+			}
+		}
+	},
+	"UpperManualCook": [
+		{
+			"_comment": "Hot Air",
+			"label": "@OV_MP_WSED7613S_TERM_HOT_AIR_W",
+			"function": {
+				"MenuNum": "HOT_AIR",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 160,
+							"temprange": {
+								"min": 30,
+								"max": 275,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Eco Hot Air",
+			"label": "@OV_MP_WSED7613S_TERM_ECO_HOT_AIR_W",
+			"function": {
+				"MenuNum": "ECO_HOT_AIR",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 160,
+							"temprange": {
+								"min": 30,
+								"max": 275,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Top Bottom Heat",
+			"label": "@OV_MP_WSED7613S_TERM_TOP_BOTTOM_HEAT_W",
+			"function": {
+				"MenuNum": "TOP_BOTTOM_HEAT",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 170,
+							"temprange": {
+								"min": 30,
+								"max": 300,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Roasting",
+			"label": "@OV_MP_WSED7613S_TERM_ROASTING_W",
+			"function": {
+				"MenuNum": "ROASTING",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 190,
+							"temprange": {
+								"min": 30,
+								"max": 300,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Pizza Mode",
+			"label": "@OV_MP_WSED7613S_TERM_PIZZA_MODE_W",
+			"function": {
+				"MenuNum": "PIZZA_MODE",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 180,
+							"temprange": {
+								"min": 30,
+								"max": 300,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Fan Assisted Air",
+			"label": "@OV_MP_WSED7613S_TERM_FAN_ASSISTED_AIR_W",
+			"function": {
+				"MenuNum": "FAN_ASSISTET_AIR",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 160,
+							"temprange": {
+								"min": 30,
+								"max": 300,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Large Grill",
+			"label": "@OV_MP_WSED7613S_TERM_LARGE_GRILL_W",
+			"function": {
+				"MenuNum": "LARGE_GRILL",
+				"CookTemp_HML": {
+					"default": "LV3",
+					"selectable": [
+						"LV1",
+						"LV2",
+						"LV3"
+					]
+				},
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 2,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Small Grill",
+			"label": "@OV_MP_WSED7613S_TERM_SMALL_GRILL_W",
+			"function": {
+				"MenuNum": "SMALL_GRILL",
+				"CookTemp_HML": {
+					"default": "LV3",
+					"selectable": [
+						"LV1",
+						"LV2",
+						"LV3"
+					]
+				},
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 2,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Bottom Heat",
+			"label": "@OV_MP_WSED7613S_TERM_BOTTOM_HEAT_W",
+			"function": {
+				"MenuNum": "BOTTOM_HEAT",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 170,
+							"temprange": {
+								"min": 30,
+								"max": 250,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Eco Top Bottom Heat",
+			"label": "@OV_MP_WSED7613S_TERM_ECO_TOP_BOTTOM_HEAT_W",
+			"function": {
+				"MenuNum": "ECO_TOP_BOTTOM_HEAT",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 170,
+							"temprange": {
+								"min": 30,
+								"max": 300,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Air Fry",
+			"label": "@OV_MP_WSED7613S_TERM_AIR_FRY_W",
+			"function": {
+				"MenuNum": "AIR_FRY",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 200,
+							"temprange": {
+								"min": 150,
+								"max": 275,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Air Sous-vide",
+			"label": "@OV_MP_WSED7613S_TERM_AIR_SOUSVIDE_W",
+			"function": {
+				"MenuNum": "AIR_SOUSVIDE",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 50,
+							"temprange": {
+								"min": 30,
+								"max": 100,
+								"step": 1
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 47,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Warm",
+			"label": "@OV_MP_WSED7613S_TERM_WARM_W",
+			"function": {
+				"MenuNum": "WARM",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 75,
+							"temprange": {
+								"min": 40,
+								"max": 100,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Defrost",
+			"label": "@OV_MP_WSED7613S_TERM_DEFROST_W",
+			"function": {
+				"MenuNum": "DEFROST",
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		},
+		{
+			"_comment": "Proof",
+			"label": "@OV_MP_WSED7613S_TERM_PROOF_W",
+			"function": {
+				"MenuNum": "PROOF",
+				"CookTemperature": [
+					{
+						"UpperCookTemp_C": {
+							"default": 40,
+							"temprange": {
+								"min": 30,
+								"max": 60,
+								"step": 5
+							}
+						}
+					}
+				],
+				"UpperCookTimeHour": {
+					"type": "Range",
+					"default": 0,
+					"option": {
+						"min": 0,
+						"max": 11,
+						"step": 1
+					}
+				},
+				"UpperCookTimeMin": {
+					"type": "Range",
+					"default": 15,
+					"option": {
+						"min": 0,
+						"max": 59,
+						"step": 1
+					}
+				}
+			}
+		}
+	],
+	"SettingOven": [
+		{
+			"_comment": "Hour Mode",
+			"label": "@OV_TERM_HOUR_MODE_W",
+			"function": {
+				"HourMode": {
+					"default": "NOT_SET",
+					"selectable": [
+						"NOT_SET",
+						"12H_MODE",
+						"24H_MODE"
+					]
+				}
+			}
+		},
+		{
+			"_comment": "Beeper Volume",
+			"label": "@OV_TERM_BEEPER_VOLUME_W",
+			"function": {
+				"BeeperVolume": {
+					"default": "NOT_SET",
+					"selectable": [
+						"NOT_SET",
+						"HIGH",
+						"LOW",
+						"MUTE"
+					]
+				}
+			}
+		},
+		{
+			"_comment": "Insta View",
+			"label": "@OV_TERM_INSTA_VIEW_W",
+			"function": {
+				"InstaView": {
+					"default": "NOT_SET",
+					"selectable": [
+						"DISABLE",
+						"ENABLE"
+					]
+				}
+			}
+		}
+	],
+	"Push": [
+		{
+			"category": "PUSH_OVEN_STATE_ALARM",
+			"label": "@OV_TERM_OVEN_STATE_ALARM_W",
+			"groupCode": "30101",
+			"pushList": []
+		},
+		{
+			"category": "PUSH_OVEN_CLEAN_PERIOD",
+			"label": "@OV_TERM_CLEAN_CYCLE_ALARM_W",
+			"groupCode": "30102",
+			"pushList": []
+		}
+	],
+	"Value": {
+		"UpperOvenState": {
+			"type": "Enum",
+			"default": "INITIAL",
+			"option": {
+				"INITIAL": "@OV_STATE_INITIAL_W",
+				"PREHEATING": "@OV_STATE_PREHEAT_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"DONE": "@OV_STATE_COOK_COMPLETE_W",
+				"COOLING": "@OV_TERM_COOLING_W",
+				"CLEANING": "@OV_STATE_CLEAN_W",
+				"CLEANING_DONE": "@OV_STATE_CLEAN_COMPLETE_W",
+				"ERROR": "@OV_STATE_ERROR_NEW_W"
+			}
+		},
+		"UpperCookModeState": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 7,
+					"default": 0,
+					"superSet": "ovenState.upperManualCookName",
+					"value": "UpperCookMode"
+				},
+				{
+					"startbit": 7,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperRemoteStartUsing",
+					"value": "UpperRemoteUsing"
+				}
+			]
+		},
+		"UpperCookMode": {
+			"type": "Enum",
+			"default": "HOT_AIR",
+			"option": {
+				"NONE": "NONE",
+				"HOT_AIR": "@OV_MP_WSED7613S_TERM_HOT_AIR_W",
+				"ECO_HOT_AIR": "@OV_MP_WSED7613S_TERM_ECO_HOT_AIR_W",
+				"TOP_BOTTOM_HEAT": "@OV_MP_WSED7613S_TERM_TOP_BOTTOM_HEAT_W",
+				"FAN_ASSISTET_AIR": "@OV_MP_WSED7613S_TERM_FAN_ASSISTED_AIR_W",
+				"BOTTOM_HEAT": "@OV_MP_WSED7613S_TERM_BOTTOM_HEAT_W",
+				"PIZZA_MODE": "@OV_MP_WSED7613S_TERM_PIZZA_MODE_W",
+				"ROASTING": "@OV_MP_WSED7613S_TERM_ROASTING_W",
+				"STEAM": "@OV_UX30_COOK_STEAM_W",
+				"STEAM_HOT_AIR": "@OV_STEAM_HOT_AIR_W",
+				"SOUS_VIDE": "@OV_TERM_EBONY_SOUSVIDE_W",
+				"LIGHT_ROAST": "LIGHT_ROAST",
+				"RAPIDHEAT_ROAST": "@OV_TERM_STEAM_ROAST_EU_W",
+				"SMALL_GRILL": "@OV_MP_WSED7613S_TERM_SMALL_GRILL_W",
+				"LARGE_GRILL": "@OV_MP_WSED7613S_TERM_LARGE_GRILL_W",
+				"PROOF": "@OV_MP_WSED7613S_TERM_PROOF_W",
+				"WARM": "@OV_MP_WSED7613S_TERM_WARM_W",
+				"DEFROST": "@OV_MP_WSED7613S_TERM_DEFROST_W",
+				"WARM_DISHES": "@OV_TERM_WARM_DISH_W",
+				"RECIPE_COOK": "@OV_UX35_RECIPE_COOK",
+				"STEAM_CLEAN": "STEAM_CLEAN",
+				"STEAM_MAINTENANCE": "STEAM_MAINTENACE",
+				"SELF_CLEAN": "@OV_MP_WSED7613S_TERM_SELF_CLEAN_W",
+				"EASY_CLEAN": "@OV_MP_WSED7613S_TERM_EASYCLEAN_W",
+				"AIR_FRY": "@OV_MP_WSED7613S_TERM_AIR_FRY_W",
+				"AIR_SOUSVIDE": "@OV_MP_WSED7613S_TERM_AIR_SOUSVIDE_W",
+				"ECO_TOP_BOTTOM_HEAT": "@OV_MP_WSED7613S_TERM_ECO_TOP_BOTTOM_HEAT_W",
+				"DRYING": "@OV_MP_WSED7613S_TERM_DRIED_FOOD_W",
+				"FROZEN_MEAL": "@OV_TERM_FROZEN_MEAL_W",
+				"STEAM_BAKING": "@OV_STEAM_BAKE_W",
+				"STEAM_REGENERATION_COOK": "@OV_STEAM_REGENERATION_W"
+			}
+		},
+		"UpperRemoteUsing": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"superSet": "upperRemoteStartUsing",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperCookTimeHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"UpperCookTimeMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"UpperCookTimeSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"UpperTargetCookTimeHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"UpperTargetCookTimeMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"UpperTargetTemp": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 15,
+					"default": 0,
+					"superSet": "ovenState.upperTargetTemperatureValue",
+					"value": "UpperTargetTemp_F"
+				},
+				{
+					"startbit": 15,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperTargetTemperatureUnit",
+					"value": "MonTempUnit"
+				}
+			]
+		},
+		"UpperTargetTemp_F": {
+			"type": "Range",
+			"default": 350,
+			"option": {
+				"min": 40,
+				"max": 500,
+				"step": 1
+			}
+		},
+		"UpperTargetTemp_C": {
+			"type": "Range",
+			"default": 175,
+			"option": {
+				"min": 80,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"UpperCookTemp_F": {
+			"type": "Range",
+			"default": 350,
+			"option": {
+				"min": 40,
+				"max": 500,
+				"step": 1
+			}
+		},
+		"UpperCookTemp_C": {
+			"type": "Range",
+			"default": 175,
+			"option": {
+				"min": 80,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"UpperProbeTargetTemp_F": {
+			"type": "Range",
+			"default": 150,
+			"option": {
+				"min": 30,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"UpperProbeTargetTemp_C": {
+			"type": "Range",
+			"default": 65,
+			"option": {
+				"min": 27,
+				"max": 200,
+				"step": 1
+			}
+		},
+		"UpperProbeCurrentTemp_F": {
+			"type": "Range",
+			"default": 150,
+			"option": {
+				"min": 30,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"UpperProbeCurrentTemp_C": {
+			"type": "Range",
+			"default": 65,
+			"option": {
+				"min": 27,
+				"max": 200,
+				"step": 1
+			}
+		},
+		"UpperOvenStateInfo": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperDoorLock",
+					"value": "UpperDoorlock"
+				},
+				{
+					"startbit": 1,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperControlLock",
+					"value": "UpperControllock"
+				},
+				{
+					"startbit": 2,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperIsError",
+					"value": "UpperError"
+				},
+				{
+					"startbit": 3,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperDoorOpen",
+					"value": "UpperDoorOpen"
+				}
+			]
+		},
+		"UpperTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"UpperTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"UpperTimerSec": {
+			"type": "Range",
+			"default": 10,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"UpperWiFiAccess": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperRemoteStart",
+					"value": "UpperRemoteStart"
+				},
+				{
+					"startbit": 1,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperTimerSet",
+					"value": "UpperTimerSet"
+				},
+				{
+					"startbit": 2,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperOptionSet",
+					"value": "UpperOptionSet"
+				},
+				{
+					"startbit": 3,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.upperFotaEnable",
+					"value": "UpperFOTAEnable"
+				}
+			]
+		},
+		"UpperCookNum": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 65280,
+				"step": 1
+			}
+		},
+		"LowerOvenState": {
+			"type": "Enum",
+			"default": "INITIAL",
+			"option": {
+				"INITIAL": "@OV_STATE_INITIAL_W",
+				"PREHEATING": "@OV_STATE_PREHEAT_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"DONE": "@OV_STATE_COOK_COMPLETE_W",
+				"COOLING": "@OV_TERM_COOLING_W",
+				"CLEANING": "@OV_STATE_CLEAN_W",
+				"CLEANING_DONE": "@OV_STATE_CLEAN_COMPLETE_W",
+				"ERROR": "@OV_STATE_ERROR_NEW_W"
+			}
+		},
+		"LowerCookModeState": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 7,
+					"default": 0,
+					"superSet": "ovenState.lowerManualCookName",
+					"value": "LowerCookMode"
+				},
+				{
+					"startbit": 7,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerRemoteStartUsing",
+					"value": "LowerRemoteUsing"
+				}
+			]
+		},
+		"LowerCookMode": {
+			"type": "Enum",
+			"default": "LOWER_BAKE",
+			"option": {
+				"NONE": "NONE",
+				"LOWER_BAKE": "@OV_TERM_BAKE_W",
+				"LOWER_ROAST": "@OV_TERM_ROAST_W",
+				"LOWER_CONVECTION_BAKE": "@OV_TERM_CONV_BAKE_W",
+				"LOWER_CONVECTION_ROAST": "@OV_TERM_CONV_ROAST_W",
+				"LOWER_CRISP_CONVECTION": "@OV_TERM_CRISP_CONV_W",
+				"LOWER_FAVORITE": "@OV_TERM_COOKMODE_FAVORITE_W",
+				"LOWER_BROIL": "@OV_TERM_BROIL_W",
+				"LOWER_KEEP_WARM": "@OV_TERM_KEEP_WARM_W",
+				"LOWER_PROOF": "@OV_TERM_PROOF_W",
+				"LOWER_PIZZA": "@OV_TERM_FROZEN_MEAL_W",
+				"LOWER_HEALTH_ROAST": "@OV_TERM_SLOW_COOK_W",
+				"LOWER_PROBE_SET": "@OV_TERM_PROBE_SET_W",
+				"LOWER_EASY_CLEAN": "@OV_TERM_EASY_CLEAN_W",
+				"LOWER_SPEED_BROIL": "@OV_TERM_SPEED_BROIL_W",
+				"LOWER_SELF_CLEAN": "@OV_TERM_SELF_CLEAN_W",
+				"LOWER_SPEED_ROAST": "@OV_TERM_SPEED_ROAST_W"
+			}
+		},
+		"LowerRemoteUsing": {
+			"type": "Enum",
+			"default": 0,
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerCookTimeHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LowerCookTimeMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LowerCookTimeSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LowerTargetCookTimeHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LowerTargetCookTimeMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LowerTargetTemp": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 15,
+					"default": 0,
+					"superSet": "ovenState.lowerTargetTemperatureValue",
+					"value": "LowerTargetTemp_F"
+				},
+				{
+					"startbit": 15,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerTargetTemperatureUnit",
+					"value": "MonTempUnit"
+				}
+			]
+		},
+		"LowerTargetTemp_F": {
+			"type": "Range",
+			"default": 350,
+			"option": {
+				"min": 40,
+				"max": 500,
+				"step": 1
+			}
+		},
+		"LowerTargetTemp_C": {
+			"type": "Range",
+			"default": 175,
+			"option": {
+				"min": 80,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"LowerCookTemp_F": {
+			"type": "Range",
+			"default": 350,
+			"option": {
+				"min": 40,
+				"max": 500,
+				"step": 1
+			}
+		},
+		"LowerCookTemp_C": {
+			"type": "Range",
+			"default": 175,
+			"option": {
+				"min": 80,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"LowerProbeTargetTemp_F": {
+			"type": "Range",
+			"default": 150,
+			"option": {
+				"min": 30,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"LowerProbeTargetTemp_C": {
+			"type": "Range",
+			"default": 65,
+			"option": {
+				"min": 27,
+				"max": 200,
+				"step": 1
+			}
+		},
+		"LowerProbeCurrentTemp_F": {
+			"type": "Range",
+			"default": 150,
+			"option": {
+				"min": 30,
+				"max": 300,
+				"step": 1
+			}
+		},
+		"LowerProbeCurrentTemp_C": {
+			"type": "Range",
+			"default": 65,
+			"option": {
+				"min": 27,
+				"max": 200,
+				"step": 1
+			}
+		},
+		"LowerOvenStateInfo": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerDoorLock",
+					"value": "LowerDoorlock"
+				},
+				{
+					"startbit": 1,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerControlLock",
+					"value": "LowerControllock"
+				},
+				{
+					"startbit": 2,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerIsError",
+					"value": "LowerError"
+				},
+				{
+					"startbit": 3,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerDoorOpen",
+					"value": "LowerDoorOpen"
+				}
+			]
+		},
+		"LowerTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LowerTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LowerTimerSec": {
+			"type": "Range",
+			"default": 10,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LowerWiFiAccess": {
+			"type": "Serveral",
+			"default": 0,
+			"option": [
+				{
+					"startbit": 0,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerRemoteStart",
+					"value": "LowerRemoteStart"
+				},
+				{
+					"startbit": 1,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerTimerSet",
+					"value": "LowerTimerSet"
+				},
+				{
+					"startbit": 2,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerOptionSet",
+					"value": "LowerOptionSet"
+				},
+				{
+					"startbit": 3,
+					"length": 1,
+					"default": 0,
+					"superSet": "ovenState.lowerFotaEnable",
+					"value": "LowerFOTAEnable"
+				}
+			]
+		},
+		"LowerCookNum": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 65280,
+				"step": 1
+			}
+		},
+		"LFState": {
+			"type": "Enum",
+			"default": "INIT",
+			"option": {
+				"INIT": "@OV_STATE_INITIAL_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"PAUSED": "@OV_STATE_PAUSE_W",
+				"LOCK": "@OV_TERM_LOCKED_W"
+			}
+		},
+		"LFPowetLevel": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LFHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LFMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LFSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RFState": {
+			"type": "Enum",
+			"default": "INIT",
+			"option": {
+				"INIT": "@OV_STATE_INITIAL_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"PAUSED": "@OV_STATE_PAUSE_W",
+				"LOCK": "@OV_TERM_LOCKED_W"
+			}
+		},
+		"RFPowetLevel": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"RFHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"RFMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RFSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LRState": {
+			"type": "Enum",
+			"default": "INIT",
+			"option": {
+				"INIT": "@OV_STATE_INITIAL_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"PAUSED": "@OV_STATE_PAUSE_W",
+				"LOCK": "@OV_TERM_LOCKED_W"
+			}
+		},
+		"LRPowetLevel": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LRHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LRMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LRSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RRState": {
+			"type": "Enum",
+			"default": "INIT",
+			"option": {
+				"INIT": "@OV_STATE_INITIAL_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"PAUSED": "@OV_STATE_PAUSE_W",
+				"LOCK": "@OV_TERM_LOCKED_W"
+			}
+		},
+		"RRPowetLevel": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"RRHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"RRMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RRSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"CenterState": {
+			"type": "Enum",
+			"default": "INIT",
+			"option": {
+				"INIT": "@OV_STATE_INITIAL_W",
+				"COOKING_IN_PROGRESS": "@OV_STATE_COOK_W",
+				"PAUSED": "@OV_STATE_PAUSE_W",
+				"LOCK": "@OV_TERM_LOCKED_W"
+			}
+		},
+		"CenterPowetLevel": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"CenterHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"CenterMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"CenterSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"DrawerPowetLevel": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 5,
+				"step": 1
+			}
+		},
+		"MonTempUnit": {
+			"type": "Enum",
+			"_comment": "0 : F , 1 : C",
+			"default": "0",
+			"option": {
+				"FAHRENHEIT": "0",
+				"CELSIUS": "1"
+			}
+		},
+		"UpperRackPlacement": {
+			"type": "Range",
+			"default": 1,
+			"option": {
+				"min": 1,
+				"max": 5,
+				"step": 1
+			}
+		},
+		"LowerRackPlacement": {
+			"type": "Range",
+			"default": 1,
+			"option": {
+				"min": 1,
+				"max": 5,
+				"step": 1
+			}
+		},
+		"CookTemp_HML": {
+			"type": "Enum",
+			"default": "LV3",
+			"option": {
+				"LV3": "L3",
+				"LV1": "L1",
+				"LV2": "L2"
+			}
+		},
+		"KeepWarm": {
+			"type": "Boolean",
+			"default": false,
+			"option": {
+				"true": "ON",
+				"false": "OFF"
+			}
+		},
+		"CookTemp_BROIL": {
+			"type": "Enum",
+			"option": {
+				"BROIL_HIGH": "@OV_TERM_GOOD_W",
+				"BROIL_LOW": "@OV_TERM_POOR_W"
+			}
+		},
+		"Pizza_HML": {
+			"type": "Enum",
+			"default": "P1",
+			"option": {
+				"P1": "P1",
+				"P2": "P2",
+				"P3": "P3"
+			}
+		},
+		"Accessory": {
+			"type": "Enum",
+			"option": {
+				"HEAVY_RACK": "@OV_TERM_HEAVY_RACK_W",
+				"GLIDING_RACK": "@OV_TERM_GLIDING_RACK_W",
+				"OTHER": "@OV_TERM_OTHER_W"
+			}
+		},
+		"HourMode": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"_Comment": "0 = 24H, 1 = 12H",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"12H_MODE": "@OV_UX30_SETTING_12H_W",
+				"24H_MODE": "@OV_UX30_SETTING_24H_W"
+			}
+		},
+		"ConvAutoConversion": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"AutoRemote": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"ThermostatAdjustment": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"OFF": "@CP_OFF_EN_W",
+				"ON": "@CP_ON_EN_W"
+			}
+		},
+		"ThermostatAdjustment_Select": {
+			"type": "Enum",
+			"default": "CELSIUS",
+			"option": {
+				"FAHRENHEIT": "℉",
+				"CELSIUS": "℃"
+			}
+		},
+		"UpperThermostatAdjustment_Temp_F": {
+			"type": "Range",
+			"default": -1,
+			"option": {
+				"min": -35,
+				"max": 35,
+				"step": 1
+			}
+		},
+		"LowerThermostatAdjustment_Temp_F": {
+			"type": "Range",
+			"default": -1,
+			"option": {
+				"min": -35,
+				"max": 35,
+				"step": 1
+			}
+		},
+		"ThermostatAdjustment_Temp_C": {
+			"type": "Range",
+			"default": -1,
+			"option": {
+				"min": -19,
+				"max": 19,
+				"step": 1
+			}
+		},
+		"PreheatingAlarmLight": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"OFF": "@CP_OFF_EN_W",
+				"ON": "@CP_ON_EN_W"
+			}
+		},
+		"BeeperVolume": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"HIGH": "@OV_TERM_HIGH_W",
+				"LOW": "@OV_TERM_LOW_W",
+				"MUTE": "@OV_TERM_MUTE_W"
+			}
+		},
+		"AdjustTempUnit": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"FAHRENHEIT": "@OV_TERM_FAHRENHEIT_W",
+				"CELSIUS": "@OV_TERM_CELSIUS_W"
+			}
+		},
+		"TempUnit": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"FAHRENHEIT": "@OV_TERM_FAHRENHEIT_W",
+				"CELSIUS": "@OV_TERM_CELSIUS_W"
+			}
+		},
+		"Language": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"ENGLISH": "@OV_TERM_LANGUAGE_EN_W",
+				"SPANISH": "@OV_TERM_LANGUAGE_SP_W",
+				"FRENCH": "@OV_TERM_LANGUAGE_FR_W"
+			}
+		},
+		"CookTopAlarmSet": {
+			"default": 30,
+			"timeRange": {
+				"min": 0,
+				"max": 240,
+				"step": 1
+			}
+		},
+		"CookTopAlarmSetLabel": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"OFF": "@CP_OFF_EN_W",
+				"ON": "@CP_ON_EN_W"
+			}
+		},
+		"CleaningRecommendation": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"1WEEK": "@OV_TERM_PERIOD_1WEEK_W",
+				"2WEEK": "@OV_TERM_PERIOD_2WEEK_W",
+				"1MONTH": "@OV_TERM_PERIOD_1MONTH_W"
+			}
+		},
+		"EnergeSaving": {
+			"upperEasyClean": "145",
+			"upperSelfClean": "10580",
+			"upperSteam": false,
+			"lowerSteam": false
+		},
+		"CookDataString": {
+			"type": "String",
+			"_comment": "CookData received to Server"
+		},
+		"UpperRemoteStart": {
+			"type": "Enum",
+			"default": false,
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperTimerSet": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperOptionSet": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperFOTAEnable": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperDoorlock": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperControllock": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"CommonControllock": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"InstaView": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperError": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperDoorOpen": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerRemoteStart": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerTimerSet": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerOptionSet": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerFOTAEnable": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerDoorlock": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerControllock": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerError": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerDoorOpen": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperProbeTemp_F": {
+			"type": "Range",
+			"default": 150,
+			"option": {
+				"min": 80,
+				"max": 210,
+				"step": 5
+			}
+		},
+		"UpperProbeTemp_C": {
+			"type": "Range",
+			"default": 65,
+			"option": {
+				"min": 27,
+				"max": 100,
+				"step": 1
+			}
+		},
+		"LowerProbeTemp_F": {
+			"type": "Range",
+			"default": 150,
+			"option": {
+				"min": 80,
+				"max": 210,
+				"step": 5
+			}
+		},
+		"LowerProbeTemp_C": {
+			"type": "Range",
+			"default": 65,
+			"option": {
+				"min": 27,
+				"max": 100,
+				"step": 1
+			}
+		},
+		"CooktopVolume": {
+			"type": "Enum",
+			"default": "NOT_SET",
+			"option": {
+				"NOT_SET": "@OV_TERM_NOT_SET_W",
+				"HIGH": "@OV_TERM_HIGH_W",
+				"LOW": "@OV_TERM_LOW_W",
+				"MUTE": "@OV_TERM_MUTE_W"
+			}
+		},
+		"UpperTargetTempShow": {
+			"type": "Enum",
+			"DISABLE": "NOT_SET",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"CommonErrorCode": {
+			"type": "Enum",
+			"default": "NO_ERROR",
+			"option": {
+				"NO_ERROR": "NO_ERROR",
+				"F9": "F9"
+			}
+		},
+		"ErrorLabels": {
+			"type": "Enum",
+			"NO_ERROR": {
+				"_comment": "No Error",
+				"label": "ERROR_NOERROR",
+				"title": "ERROR_NOERROR_TITLE",
+				"content": "ERROR_NOERROR_CONTENT"
+			},
+			"F9": {
+				"_comment": "ERROR_F9",
+				"label": "F-9",
+				"title": "@OV_ERROR_F9_TITLE_S",
+				"content": "@OV_ERROR_F9_DESC_S"
+			}
+		},
+		"LowerTargetTempShow": {
+			"type": "Enum",
+			"DISABLE": "NOT_SET",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperSabbath": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"LowerSabbath": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"PreheatAlarmSet": {
+			"type": "Enum",
+			"default": "DISABLE",
+			"option": {
+				"DISABLE": "@CP_DISABLE_W",
+				"ENABLE": "@CP_ENABLE_W"
+			}
+		},
+		"UpperSubCookMenu": {
+			"type": "Enum",
+			"default": "LV3",
+			"option": {
+				"LV3": "L3",
+				"LV2": "L2",
+				"LV1": "L1",
+				"NONE": "NONE"
+			}
+		},
+		"LowerSubCookMenu": {
+			"type": "Enum",
+			"default": "LV3",
+			"option": {
+				"LV3": "L3",
+				"LV2": "L2",
+				"LV1": "L1",
+				"NONE": "NONE"
+			}
+		},
+		"UpperMyRecipeCookNum": {
+			"type": "Range",
+			"default": 1,
+			"option": {
+				"min": 0,
+				"max": 65535,
+				"step": 1
+			}
+		},
+		"LowerMyRecipeCookNum": {
+			"type": "Range",
+			"default": 1,
+			"option": {
+				"min": 0,
+				"max": 65535,
+				"step": 1
+			}
+		},
+		"UpperScanToCookRunningStage": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 255,
+				"step": 1
+			}
+		},
+		"LowerScanToCookRunningStage": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 255,
+				"step": 1
+			}
+		},
+		"RRTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"RRTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RRTimerSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RFTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"RFTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"RFTimerSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LRTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LRTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LRTimerSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LFTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"LFTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"LFTimerSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"CRTimerHour": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 11,
+				"step": 1
+			}
+		},
+		"CRTimerMin": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"CRTimerSec": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 59,
+				"step": 1
+			}
+		},
+		"FOTADownloadProgress": {
+			"type": "Range",
+			"default": 0,
+			"option": {
+				"min": 0,
+				"max": 100,
+				"step": 1
+			}
+		},
+		"FOTAState": {
+			"type": "Enum",
+			"default": "NORMAL",
+			"option": {
+				"NORMAL": "NORMAL",
+				"DOWNLOAD": "DOWNLOAD",
+				"UPDATING": "UPDATING",
+				"DOWNLOAD_COMPLETE": "DOWNLOAD_COMPLETE"
+			}
+		}
+	},
+	"Monitoring": {
+		"type": "THINQ2",
+		"protocol": [
+			{
+				"_comment": "Upper Oven Operation State(4byte)",
+				"superSet": "ovenState.upperState",
+				"value": "UpperOvenState"
+			},
+			{
+				"_comment": "Upper CookMode",
+				"superSet": "ovenState.upperManualCookName",
+				"value": "UpperCookMode"
+			},
+			{
+				"_comment": "Upper CookMode",
+				"superSet": "ovenState.upperRemoteStartUsing",
+				"value": "UpperRemoteUsing"
+			},
+			{
+				"_comment": "Upper CookTime(Sec)",
+				"superSet": "ovenState.upperRemainTimeSecond",
+				"value": "UpperCookTimeSec"
+			},
+			{
+				"_comment": "Upper CookTime(Min)",
+				"superSet": "ovenState.upperRemainTimeMinute",
+				"value": "UpperCookTimeMin"
+			},
+			{
+				"_comment": "Upper CookTime(Hour)",
+				"superSet": "ovenState.upperRemainTimeHour",
+				"value": "UpperCookTimeHour"
+			},
+			{
+				"_comment": "Upper Target Temperature F",
+				"superSet": "ovenState.upperTargetTemperatureValue",
+				"value": "UpperTargetTemp_F"
+			},
+			{
+				"_comment": "Upper Target Temperature F",
+				"superSet": "ovenState.upperTargetTemperatureUnit",
+				"value": "MonTempUnit"
+			},
+			{
+				"_comment": "Upper Current Temperature F",
+				"superSet": "ovenState.upperCurrentTemperatureF",
+				"value": "UpperCookTemp_F"
+			},
+			{
+				"_comment": "Upper Probe Target Temperature F",
+				"superSet": "ovenState.upperTargetProveTemperatureF",
+				"value": "UpperProbeTargetTemp_F"
+			},
+			{
+				"_comment": "Upper Probe Current Temperature F",
+				"superSet": "ovenState.upperCurrentProveTemperatureF",
+				"value": "UpperProbeCurrentTemp_F"
+			},
+			{
+				"_comment": "Upper Oven State Information",
+				"superSet": "ovenState.upperDoorLock",
+				"value": "UpperDoorlock"
+			},
+			{
+				"_comment": "Upper Oven State Information",
+				"superSet": "ovenState.upperControlLock",
+				"value": "UpperControllock"
+			},
+			{
+				"_comment": "Upper Oven State Information",
+				"superSet": "ovenState.upperIsError",
+				"value": "UpperError"
+			},
+			{
+				"_comment": "Upper Oven State Information",
+				"superSet": "ovenState.upperDoorOpen",
+				"value": "UpperDoorOpen"
+			},
+			{
+				"_comment": "Upper Timer (Sec)",
+				"superSet": "ovenState.upperTimerSecond",
+				"value": "UpperTimerSec"
+			},
+			{
+				"_comment": "Upper Timer (Min)",
+				"superSet": "ovenState.upperTimerMinute",
+				"value": "UpperTimerMin"
+			},
+			{
+				"_comment": "Upper Timer (Hour)",
+				"superSet": "ovenState.upperTimerHour",
+				"value": "UpperTimerHour"
+			},
+			{
+				"_comment": "Upper Remote Start Flag",
+				"superSet": "ovenState.upperRemoteStart",
+				"value": "UpperRemoteStart"
+			},
+			{
+				"_comment": "Upper Remote Start Flag",
+				"superSet": "ovenState.upperTimerSet",
+				"value": "UpperTimerSet"
+			},
+			{
+				"_comment": "Upper Remote Start Flag",
+				"superSet": "ovenState.upperOptionSet",
+				"value": "UpperOptionSet"
+			},
+			{
+				"_comment": "Upper Remote Start Flag",
+				"superSet": "ovenState.upperFotaEnable",
+				"value": "UpperFOTAEnable"
+			},
+			{
+				"_comment": "Upper EasyClean Enable",
+				"superSet": "ovenState.upperEasyCleanEnable",
+				"value": "UpperEasyCleanEnable"
+			},
+			{
+				"_comment": "Upper Sabbath Flag",
+				"superSet": "ovenState.upperSabbath",
+				"value": "UpperSabbath"
+			},
+			{
+				"_comment": "Upper Cook Target Temp. Visible / Hidden Flag",
+				"superSet": "ovenState.upperTargetTempShow",
+				"value": "UpperTargetTempShow"
+			},
+			{
+				"_comment": "Lower Oven Operation State(4byte)",
+				"superSet": "ovenState.lowerState",
+				"value": "LowerOvenState"
+			},
+			{
+				"_comment": "Lower CookMode",
+				"superSet": "ovenState.lowerManualCookName",
+				"value": "LowerCookMode"
+			},
+			{
+				"_comment": "Lower CookMode",
+				"superSet": "ovenState.lowerRemoteStartUsing",
+				"value": "LowerRemoteUsing"
+			},
+			{
+				"_comment": "Lower CookTime(Sec)",
+				"superSet": "ovenState.lowerRemainTimeSecond",
+				"value": "LowerCookTimeSec"
+			},
+			{
+				"_comment": "Lower CookTime(Min)",
+				"superSet": "ovenState.lowerRemainTimeMinute",
+				"value": "LowerCookTimeMin"
+			},
+			{
+				"_comment": "Lower CookTime(Hour)",
+				"superSet": "ovenState.lowerRemainTimeHour",
+				"value": "LowerCookTimeHour"
+			},
+			{
+				"_comment": "Lower Target Temperature F",
+				"superSet": "ovenState.lowerTargetTemperatureValue",
+				"value": "LowerTargetTemp_F"
+			},
+			{
+				"_comment": "Lower Target Temperature F",
+				"superSet": "ovenState.lowerTargetTemperatureUnit",
+				"value": "MonTempUnit"
+			},
+			{
+				"_comment": "Lower Current Temperature F",
+				"superSet": "ovenState.lowerCurrentTemperatureF",
+				"value": "LowerCookTemp_F"
+			},
+			{
+				"_comment": "Lower Probe Target Temperature F",
+				"superSet": "ovenState.lowerTargetProveTemperatureF",
+				"value": "LowerProbeTargetTemp_F"
+			},
+			{
+				"_comment": "Lower Probe Current Temperature F",
+				"superSet": "ovenState.lowerCurrentProveTemperatureF",
+				"value": "LowerProbeCurrentTemp_F"
+			},
+			{
+				"_comment": "Lower Oven State Information",
+				"superSet": "ovenState.lowerDoorLock",
+				"value": "LowerDoorlock"
+			},
+			{
+				"_comment": "Lower Oven State Information",
+				"superSet": "ovenState.lowerControlLock",
+				"value": "LowerControllock"
+			},
+			{
+				"_comment": "Lower Oven State Information",
+				"superSet": "ovenState.lowerIsError",
+				"value": "LowerError"
+			},
+			{
+				"_comment": "Lower Oven State Information",
+				"superSet": "ovenState.lowerDoorOpen",
+				"value": "LowerDoorOpen"
+			},
+			{
+				"_comment": "Lower Timer (Sec)",
+				"superSet": "ovenState.lowerTimerSecond",
+				"value": "LowerTimerSec"
+			},
+			{
+				"_comment": "Lower Timer (Min)",
+				"superSet": "ovenState.lowerTimerMinute",
+				"value": "LowerTimerMin"
+			},
+			{
+				"_comment": "Lower Timer (Hour)",
+				"superSet": "ovenState.lowerTimerHour",
+				"value": "LowerTimerHour"
+			},
+			{
+				"_comment": "Lower Remote Start Flag",
+				"superSet": "ovenState.lowerRemoteStart",
+				"value": "LowerRemoteStart"
+			},
+			{
+				"_comment": "Lower Remote Start Flag",
+				"superSet": "ovenState.lowerTimerSet",
+				"value": "LowerTimerSet"
+			},
+			{
+				"_comment": "Lower Remote Start Flag",
+				"superSet": "ovenState.lowerOptionSet",
+				"value": "LowerOptionSet"
+			},
+			{
+				"_comment": "Lower Remote Start Flag",
+				"superSet": "ovenState.lowerFotaEnable",
+				"value": "LowerFOTAEnable"
+			},
+			{
+				"_comment": "Lower EasyClean Enable",
+				"superSet": "ovenState.lowerEasyCleanEnable",
+				"value": "LowerEasyCleanEnable"
+			},
+			{
+				"_comment": "Lower Sabbath Flag",
+				"superSet": "ovenState.lowerSabbath",
+				"value": "LowerSabbath"
+			},
+			{
+				"_comment": "Lower Cook Target Temp. Visible / Hidden Flag",
+				"superSet": "ovenState.lowerTargetTempShow",
+				"value": "LowerTargetTempShow"
+			},
+			{
+				"_comment": "Left Front Burner State",
+				"superSet": "ovenState.cooktop1CooktopState",
+				"value": "LFState"
+			},
+			{
+				"_comment": "Left Front Burner Power Level",
+				"superSet": "ovenState.cooktop1PowerLevel",
+				"value": "LFPowetLevel"
+			},
+			{
+				"_comment": "Left Front Burner Second",
+				"superSet": "ovenState.cooktop1OperationTimeSecond",
+				"value": "LFSec"
+			},
+			{
+				"_comment": "Left Front Burner Minute",
+				"superSet": "ovenState.cooktop1OperationTimeMinute",
+				"value": "LFMin"
+			},
+			{
+				"_comment": "Left Front Burner Hour",
+				"superSet": "ovenState.cooktop1OperationTimeHour",
+				"value": "LFHour"
+			},
+			{
+				"_comment": "Right Front Burner State",
+				"superSet": "ovenState.cooktop4CooktopState",
+				"value": "RFState"
+			},
+			{
+				"_comment": "Right Front Burner Power Level",
+				"superSet": "ovenState.cooktop4PowerLevel",
+				"value": "RFPowetLevel"
+			},
+			{
+				"_comment": "Right Front Burner Second",
+				"superSet": "ovenState.cooktop4OperationTimeSecond",
+				"value": "RFSec"
+			},
+			{
+				"_comment": "Right Front Burner Minute",
+				"superSet": "ovenState.cooktop4OperationTimeMinute",
+				"value": "RFMin"
+			},
+			{
+				"_comment": "Right Front Burner Hour",
+				"superSet": "ovenState.cooktop4OperationTimeHour",
+				"value": "RFHour"
+			},
+			{
+				"_comment": "Left Rear Burner State",
+				"superSet": "ovenState.cooktop2CooktopState",
+				"value": "LRState"
+			},
+			{
+				"_comment": "Left Rear Burner Power Level",
+				"superSet": "ovenState.cooktop2PowerLevel",
+				"value": "LRPowetLevel"
+			},
+			{
+				"_comment": "Left Rear Burner Second",
+				"superSet": "ovenState.cooktop2OperationTimeSecond",
+				"value": "LRSec"
+			},
+			{
+				"_comment": "Left Rear Burner Minute",
+				"superSet": "ovenState.cooktop2OperationTimeMinute",
+				"value": "LRMin"
+			},
+			{
+				"_comment": "Left Rear Burner Hour",
+				"superSet": "ovenState.cooktop2OperationTimeHour",
+				"value": "LRHour"
+			},
+			{
+				"_comment": "Right Rear Burner State",
+				"superSet": "ovenState.cooktop5CooktopState",
+				"value": "RRState"
+			},
+			{
+				"_comment": "Right Rear Burner Power Level",
+				"superSet": "ovenState.cooktop5PowerLevel",
+				"value": "RRPowetLevel"
+			},
+			{
+				"_comment": "Right Rear Burner Second",
+				"superSet": "ovenState.cooktop5OperationTimeSecond",
+				"value": "RRSec"
+			},
+			{
+				"_comment": "Right Rear Burner Minute",
+				"superSet": "ovenState.cooktop5OperationTimeMinute",
+				"value": "RRMin"
+			},
+			{
+				"_comment": "Right Rear Burner Hour",
+				"superSet": "ovenState.cooktop5OperationTimeHour",
+				"value": "RRHour"
+			},
+			{
+				"_comment": "Center Burner State",
+				"superSet": "ovenState.cooktop3CooktopState",
+				"value": "CenterState"
+			},
+			{
+				"_comment": "Center Burner Power Level",
+				"superSet": "ovenState.cooktop3PowerLevel",
+				"value": "CenterPowetLevel"
+			},
+			{
+				"_comment": "Center Burner Second",
+				"superSet": "ovenState.cooktop3OperationTimeSecond",
+				"value": "CenterSec"
+			},
+			{
+				"_comment": "Center Burner Minute",
+				"superSet": "ovenState.cooktop3OperationTimeMinute",
+				"value": "CenterMin"
+			},
+			{
+				"_comment": "Center Burner Hour",
+				"superSet": "ovenState.cooktop3OperationTimeHour",
+				"value": "CenterHour"
+			},
+			{
+				"_comment": "Drawer Power Level",
+				"superSet": "ovenState.drawerPowerLevel",
+				"value": "DrawerPowetLevel"
+			},
+			{
+				"_comment": "Clock Set",
+				"superSet": "ovenState.settingHourMode",
+				"value": "HourMode"
+			},
+			{
+				"_comment": "AutoConv Set",
+				"superSet": "ovenState.settingConvAutoConversion",
+				"value": "ConvAutoConversion"
+			},
+			{
+				"_comment": "TempUnit Set for Temp Adjust",
+				"superSet": "ovenState.settingAdjustUnit",
+				"value": "AdjustTempUnit"
+			},
+			{
+				"_comment": "Upper Temp Adjust Set",
+				"superSet": "ovenState.settingAdjustUpperTempValue",
+				"value": "UpperThermostatAdjustment_Temp_F"
+			},
+			{
+				"_comment": "Lower Temp Adjust Set",
+				"superSet": "ovenState.settingAdjustLowerTempValue",
+				"value": "LowerThermostatAdjustment_Temp_F"
+			},
+			{
+				"_comment": "Preheat Alarm Set",
+				"superSet": "ovenState.settingPreheatAlarm",
+				"value": "PreheatAlarmSet"
+			},
+			{
+				"_comment": "Beep Volume Set",
+				"superSet": "ovenState.settingBeepVolume",
+				"value": "BeeperVolume"
+			},
+			{
+				"_comment": "Temp Unit Set",
+				"superSet": "ovenState.settingOvenTempUnit",
+				"value": "TempUnit"
+			},
+			{
+				"_comment": "Language Set",
+				"superSet": "ovenState.settingLanguage",
+				"value": "Language"
+			},
+			{
+				"_comment": "CookTop Alarm Set",
+				"superSet": "ovenState.settingCooktopAlarmCooktopTimerMIN",
+				"value": "CookTopAlarmSet"
+			},
+			{
+				"_comment": "CookTop Beep Volume Set",
+				"superSet": "ovenState.settingCooktopBeepVolume",
+				"value": "CooktopVolume"
+			},
+			{
+				"_comment": "Auto Remote Set",
+				"superSet": "ovenState.settingAutoRemoteSet",
+				"value": "AutoRemote"
+			},
+			{
+				"_comment": "Common_ControlLock",
+				"superSet": "ovenState.commonControlLock",
+				"value": "CommonControllock"
+			},
+			{
+				"_comment": "Common_ControlLock",
+				"superSet": "ovenState.settingInstaViewSet",
+				"value": "InstaView"
+			},
+			{
+				"_comment": "Upper Target Time(Min)",
+				"superSet": "ovenState.upperTargetTimeMinute",
+				"value": "UpperTargetCookTimeMin"
+			},
+			{
+				"_comment": "Upper Target Time(Hour)",
+				"superSet": "ovenState.upperTargetTimeHour",
+				"value": "UpperTargetCookTimeHour"
+			},
+			{
+				"_comment": "Upper SubCook Menu",
+				"superSet": "ovenState.upperSubCookMenu",
+				"value": "UpperSubCookMenu"
+			},
+			{
+				"_comment": "Upper My Recipe Cook Num",
+				"superSet": "ovenState.upperMyRecipeCookNumber",
+				"value": "UpperMyRecipeCookNum"
+			},
+			{
+				"_comment": "Lower Target Time(Min)",
+				"superSet": "ovenState.lowerTargetTimeMinute",
+				"value": "LowerTargetCookTimeMin"
+			},
+			{
+				"_comment": "Lower Target Time(Hour)",
+				"superSet": "ovenState.lowerTargetTimeHour",
+				"value": "LowerTargetCookTimeHour"
+			},
+			{
+				"_comment": "Lower SubCook Menu",
+				"superSet": "ovenState.lowerSubCookMenu",
+				"value": "LowerSubCookMenu"
+			},
+			{
+				"_comment": "Lower My Recipe Cook Num",
+				"superSet": "ovenState.lowerMyRecipeCookNumber",
+				"value": "LowerMyRecipeCookNum"
+			},
+			{
+				"_comment": "Upper Cook And Warm Status",
+				"superSet": "ovenState.upperCookAndWarmStatus",
+				"value": "UpperCookAndWarmStatus"
+			},
+			{
+				"_comment": "Lower Cook And Warm Status",
+				"superSet": "ovenState.lowerCookAndWarmStatus",
+				"value": "LowerCookAndWarmStatus"
+			},
+			{
+				"_comment": "Upper Scan to Cook Running Stage",
+				"superSet": "ovenState.upperScanToCookRunningStage",
+				"value": "UpperScanToCookRunningStage"
+			},
+			{
+				"_comment": "Lower Scan to Cook Running Stage",
+				"superSet": "ovenState.lowerScanToCookRunningStage",
+				"value": "LowerScanToCookRunningStage"
+			},
+			{
+				"_comment": "Upper My Recipe Set Flag",
+				"superSet": "ovenState.upperMyRecipeSetFlag",
+				"value": "UpperMyRecipeSetFlag"
+			},
+			{
+				"_comment": "Lower My Recipe Set Flag",
+				"superSet": "ovenState.lowerMyRecipeSetFlag",
+				"value": "LowerMyRecipeSetFlag"
+			},
+			{
+				"_comment": "Left Front Burner Timer Sec",
+				"superSet": "ovenState.cooktop1TimerSec",
+				"value": "LFTimerSec"
+			},
+			{
+				"_comment": "Left Front Burner Timer Minute",
+				"superSet": "ovenState.cooktop1TimerMinute",
+				"value": "LFTimerMin"
+			},
+			{
+				"_comment": "Left Front Burner Timer Hour",
+				"superSet": "ovenState.cooktop1TimerHour",
+				"value": "LFTimerHour"
+			},
+			{
+				"_comment": "Left Rear Burner Timer Sec",
+				"superSet": "ovenState.cooktop2TimerSec",
+				"value": "LRTimerSec"
+			},
+			{
+				"_comment": "Left Rear Burner Timer Minute",
+				"superSet": "ovenState.cooktop2TimerMinute",
+				"value": "LRTimerMin"
+			},
+			{
+				"_comment": "Left Rear Burner Timer Hour",
+				"superSet": "ovenState.cooktop2TimerHour",
+				"value": "LRTimerHour"
+			},
+			{
+				"_comment": "Right Rear Burner Timer Sec",
+				"superSet": "ovenState.cooktop3TimerSec",
+				"value": "CRTimerSec"
+			},
+			{
+				"_comment": "Right Rear Burner Timer Minute",
+				"superSet": "ovenState.cooktop3TimerMinute",
+				"value": "CRTimerMin"
+			},
+			{
+				"_comment": "Right Rear Burner Timer Hour",
+				"superSet": "ovenState.cooktop3TimerHour",
+				"value": "CRTimerHour"
+			},
+			{
+				"_comment": "Right Front Burner Timer Sec",
+				"superSet": "ovenState.cooktop4TimerSec",
+				"value": "RFTimerSec"
+			},
+			{
+				"_comment": "Right Front Burner Timer Minute",
+				"superSet": "ovenState.cooktop4TimerMinute",
+				"value": "RFTimerMin"
+			},
+			{
+				"_comment": "Right Front Burner Timer Hour",
+				"superSet": "ovenState.cooktop4TimerHour",
+				"value": "RFTimerHour"
+			},
+			{
+				"_comment": "Center Burner Timer Sec",
+				"superSet": "ovenState.cooktop5TimerSec",
+				"value": "RRTimerSec"
+			},
+			{
+				"_comment": "Center Burner Timer Minute",
+				"superSet": "ovenState.cooktop5TimerMinute",
+				"value": "RRTimerMin"
+			},
+			{
+				"_comment": "Center Burner Timer Hour",
+				"superSet": "ovenState.cooktop5TimerHour",
+				"value": "RRTimerHour"
+			},
+			{
+				"_comment": "FOTA Progress Percent",
+				"superSet": "ovenState.FOTADownloadProgress",
+				"value": "FOTADownloadProgress"
+			},
+			{
+				"_comment": "FOTA State",
+				"superSet": "ovenState.FOTAState",
+				"value": "FOTAState"
+			},
+			{
+				"_comment": "Error Code",
+				"superSet": "ovenState.commonErrorCode",
+				"value": "CommonErrorCode"
+			}
+		]
+	}
+}

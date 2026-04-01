@@ -12,6 +12,16 @@ def {property_name}(self):
 
     return self.to_int_or_none(val)
 
+aggiungere in smartthinq_sensors > device_helpers.py
+
+@property
+def {property_name}(self):
+    """Ponte verso lo stato reale."""
+    # In questa classe lo stato è accessibile tramite self._api.state
+    if not self._api.state:
+        return None
+    return self._api.state.{property_name}
+
 aggiungere in smartthinq_sensors > {sensor_type}.py
 
 ThinQSensorEntityDescription(

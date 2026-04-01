@@ -1,6 +1,7 @@
 """Helper class for ThinQ devices"""
 
 from datetime import datetime, timedelta
+import logging
 
 from homeassistant.const import STATE_OFF, STATE_ON, UnitOfTemperature
 from homeassistant.util.dt import utcnow
@@ -8,22 +9,16 @@ from homeassistant.util.dt import utcnow
 from . import LGEDevice
 from .const import (
     ATTR_CURRENT_COURSE,
-    ATTR_DOOR_OPEN,
     ATTR_END_TIME,
     ATTR_ERROR_STATE,
-    ATTR_FREEZER_TEMP,
-    ATTR_FRIDGE_TEMP,
     ATTR_INITIAL_TIME,
-    ATTR_OVEN_LOWER_TARGET_TEMP,
     ATTR_OVEN_TEMP_UNIT,
-    ATTR_OVEN_UPPER_TARGET_TEMP,
     ATTR_REMAIN_TIME,
     ATTR_RESERVE_TIME,
     ATTR_RUN_COMPLETED,
     ATTR_START_TIME,
     ATTR_TEMP_UNIT,
     DEFAULT_SENSOR,
-    FOOD_POISON_INDEX,
 )
 from .wideq import WM_DEVICE_TYPES, DeviceType, StateOptions, TemperatureUnit
 
@@ -56,6 +51,8 @@ WASH_DEVICE_TYPES = [
     DeviceType.DISHWASHER,
     DeviceType.STYLER,
 ]
+
+_LOGGER = logging.getLogger(__name__)
 
 def get_entity_name(device: LGEDevice, ent_key: str) -> str | None:
     """Get the name for the entity"""
@@ -94,6 +91,29 @@ class LGEBaseDevice:
         if int(minutes) < 10:
             minutes = f"0{int(minutes)}"
         remain_time = [hours, minutes, "00"]
+        return ":".join(remain_time)
+    
+    @staticmethod
+    def time_to_text(hours: int | None, minutes: int | None, default_empty = False):
+        """Return a time in format hh:mm:ss based on input hours and minutes."""
+        if not minutes and not hours:
+            if default_empty:
+                return "0:00"
+            else:
+                return None                
+
+        if not hours:
+            int_minutes = int(minutes)
+            if int_minutes >= 60:
+                int_hours = int(int_minutes / 60)
+                minutes = str(int_minutes - (int_hours * 60))
+                hours = str(int_hours)
+            else:
+                hours = "0"
+
+        if int(minutes) < 10:
+            minutes = f"0{int(minutes)}"
+        remain_time = [hours, minutes]
         return ":".join(remain_time)
 
     @property
@@ -138,7 +158,6 @@ class LGEBaseDevice:
         """Return the optional state attributes."""
         """return self.get_features_attributes()"""
         return {} 
-
 
 class LGEWashDevice(LGEBaseDevice):
     """A wrapper to monitor LGE Wash devices"""
@@ -276,8 +295,8 @@ class LGERefrigeratorDevice(LGEBaseDevice):
         """Return refrigerator temperature unit."""
         if self._api.state:
             unit = self._api.state.temp_unit
-            return TEMP_UNIT_LOOKUP.get(unit, UnitOfTemperature.CELSIUS)
-        return UnitOfTemperature.CELSIUS
+            return TEMP_UNIT_LOOKUP.get(unit)
+        return None
 
     @property
     def dooropen_state(self):
@@ -290,8 +309,8 @@ class LGERefrigeratorDevice(LGEBaseDevice):
     @property
     def food_poison_index(self):
         """Ponte verso lo stato reale."""
-        # In questa classe lo stato è accessibile tramite self._api.state
         if not self._api.state:
+            _LOGGER.debug("GET PROPERTY (food_poison_index): %s", self._api.state.food_poison_index)
             return None
         return self._api.state.food_poison_index
 
@@ -299,11 +318,7 @@ class LGERefrigeratorDevice(LGEBaseDevice):
     def extra_state_attributes(self):
         """Return the optional state attributes."""
         data = {
-            ATTR_FRIDGE_TEMP: self.temp_fridge,
-            ATTR_FREEZER_TEMP: self.temp_freezer,
             ATTR_TEMP_UNIT: self.temp_unit,
-            ATTR_DOOR_OPEN: self.dooropen_state,
-            FOOD_POISON_INDEX: self.dooropen_state,
         }
         features = super().extra_state_attributes
         data.update(features)
@@ -321,56 +336,58 @@ class LGETempDevice(LGEBaseDevice):
 
 class LGERangeDevice(LGEBaseDevice):
     """A wrapper to monitor LGE range devices"""
-
-    @property
-    def cooktop_state(self):
-        """Current cooktop state"""
-        if self._api.state:
-            if self._api.state.is_cooktop_on:
-                return STATE_ON
-        return STATE_OFF
-
-    @property
-    def oven_state(self):
-        """Current oven state"""
-        if self._api.state:
-            if self._api.state.is_oven_on:
-                return STATE_ON
-        return STATE_OFF
-
-    @property
-    def oven_lower_target_temp(self):
-        """Oven lower target temperature."""
-        if self._api.state:
-            return self._api.state.oven_lower_target_temp
-        return None
-
-    @property
-    def oven_upper_target_temp(self):
-        """Oven upper target temperature."""
-        if self._api.state:
-            return self._api.state.oven_upper_target_temp
-        return None
-
+        
     @property
     def oven_temp_unit(self):
         """Oven temperature unit."""
         if self._api.state:
-            unit = self._api.state.oven_temp_unit
-            return TEMP_UNIT_LOOKUP.get(unit, UnitOfTemperature.CELSIUS)
-        return UnitOfTemperature.CELSIUS
+            unit = self._api.state.oven_user_temp_unit
+            return TEMP_UNIT_LOOKUP.get(unit)
+        return None
+    
+    """@property
+    def oven_mode(self):
+        if self._api.state:
+            return self._api.state.oven_mode"""
+    @property
+    def remote_start_enabled(self):
+        if self._api.state:
+            if self._api.state.remote_start_enabled:
+                return STATE_ON
+        return STATE_OFF
 
+    @property
+    def oven_target_temp(self):
+        if self._api.state:
+            state = self._api.state.oven_target_temp
+            return state if (state is not None and state > 0) else None
+        return None
+    
+    @property
+    def oven_current_temp(self):
+        if self._api.state:
+            state = self._api.state.oven_current_temp
+            return state if (state is not None and state > 0) else None
+        return None
+
+    @property
+    def oven_cook_time(self):
+        if self._api.state and self._api.state.is_on:
+            return self.time_to_text(self._api.state.oven_cook_time_hours, self._api.state.oven_cook_time_minutes)
+        return self.time_to_text(None, None)
+    
+    @property
+    def oven_timer(self):
+        if self._api.state and self._api.state.is_timer_set:
+            return self.time_to_text(self._api.state.oven_timer_hours, self._api.state.oven_timer_minutes)
+        return self.time_to_text(None, None)
+    
     @property
     def extra_state_attributes(self):
         """Return the optional state attributes."""
         data = {
-            ATTR_OVEN_LOWER_TARGET_TEMP: self.oven_lower_target_temp,
-            ATTR_OVEN_UPPER_TARGET_TEMP: self.oven_upper_target_temp,
             ATTR_OVEN_TEMP_UNIT: self.oven_temp_unit,
         }
-        features = super().extra_state_attributes
-        data.update(features)
-
         return data
 
 def get_wrapper_device(

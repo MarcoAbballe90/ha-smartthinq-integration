@@ -93,9 +93,10 @@ class RangeFeatures(StrEnum):
     OVEN_LOWER_CURRENT_TEMP = "oven_lower_current_temp"
     OVEN_LOWER_MODE = "oven_lower_mode"
     OVEN_LOWER_STATE = "oven_lower_state"
-    OVEN_UPPER_CURRENT_TEMP = "oven_upper_current_temp"
     OVEN_UPPER_MODE = "oven_upper_mode"
     OVEN_UPPER_STATE = "oven_upper_state"
+    OVEN_STATE = "oven_state"
+    OVEN_MODE = "oven_mode"
 
 
 class RefrigeratorFeatures(StrEnum):
@@ -110,7 +111,6 @@ class RefrigeratorFeatures(StrEnum):
     SMARTSAVINGMODE = "smart_saving_mode"
     WATERFILTERUSED_MONTH = "water_filter_used_month"
     WATERFILTER_REMAIN_PERC = "water_filter_remain_perc"
-    FOOD_POISON_INDEX = "food_poison_index"
 
 class WashDeviceFeatures(StrEnum):
     """Features for LG Wash devices."""

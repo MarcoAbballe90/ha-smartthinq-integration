@@ -61,7 +61,6 @@ CMD_STATE_FREEZER_TEMP = [CTRL_BASIC, ["SetControl", "basicCtrl"], STATE_FREEZER
 
 _LOGGER = logging.getLogger(__name__)
 
-
 class RefrigeratorDevice(Device):
     """A higher-level interface for a refrigerator."""
 
@@ -644,9 +643,8 @@ class RefrigeratorStatus(DeviceStatus):
             FEATURE_KEY_IGNORE,
         )
     
-    @property
+    """@property
     def food_poison_index(self):
-        """Return current food poison index."""
         if not self.is_info_v2:
             return None
 
@@ -655,7 +653,7 @@ class RefrigeratorStatus(DeviceStatus):
         if val is None:
             return None
 
-        return self.to_int_or_none(val)
+        return self.to_int_or_none(val)"""
 
     @property
     def locked_state(self):
@@ -672,11 +670,10 @@ class RefrigeratorStatus(DeviceStatus):
     
     @property
     def food_poison_index(self):
-        """Ritorna l'indice dal JSON grezzo."""
-        if self.is_info_v2:
-            # Usiamo .get per evitare errori se la chiave manca
-            return self.to_int_or_none(self._data.get("foodPoisonIndex"))
-        return None
+        """Ritorna l'indice dal JSON grezzo."""        
+        val = self._data.get("foodPoisonIndex")
+        _LOGGER.debug("GET RAW PROPERTY (foodPoisonIndex): %s", val)
+        return self.to_int_or_none(val)
 
     def _update_features(self):
         _ = [
