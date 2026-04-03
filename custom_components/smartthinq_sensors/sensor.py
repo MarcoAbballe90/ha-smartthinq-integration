@@ -185,36 +185,11 @@ REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         key=DEFAULT_SENSOR,
         icon=DEFAULT_ICON,
         value_fn=lambda x: x.power_state,
-    ),
+    ),    
     ThinQSensorEntityDescription(
-        key=ATTR_FRIDGE_TEMP,
-        name="Fridge temp",
-        state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.TEMPERATURE,
-        unit_fn=lambda x: x.temp_unit,
-        value_fn=lambda x: x.temp_fridge,
-    ),
-    ThinQSensorEntityDescription(
-        key=ATTR_FREEZER_TEMP,
-        name="Freezer temp",
-        state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.TEMPERATURE,
-        unit_fn=lambda x: x.temp_unit,
-        value_fn=lambda x: x.temp_freezer,
-    ),
-    ThinQSensorEntityDescription(
-        key=RefrigeratorFeatures.FRESHAIRFILTER_REMAIN_PERC,
-        name="Fresh air filter remaining",
-        icon="mdi:air-filter",
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=PERCENTAGE,
-    ),
-    ThinQSensorEntityDescription(
-        key=RefrigeratorFeatures.WATERFILTER_REMAIN_PERC,
-        name="Water filter remaining",
-        icon="mdi:waves",
-        state_class=SensorStateClass.MEASUREMENT,
-        native_unit_of_measurement=PERCENTAGE,
+        key=RefrigeratorFeatures.ICE_MAKER,
+        name="Macchina del ghiaccio",
+        icon="mdi:delete-variant",
     ),
     ThinQSensorEntityDescription(
         key="food_poison_index",
@@ -223,6 +198,30 @@ REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement="pt",
         value_fn=lambda x: x.food_poison_index,
+    ),
+    ThinQSensorEntityDescription(
+        key=RefrigeratorFeatures.FRIDGE,
+        name="Stato frigorifero",
+        icon="mdi:fridge-top",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    ThinQSensorEntityDescription(
+        key=RefrigeratorFeatures.FREEZER,
+        name="Stato congelatore",
+        icon="mdi:fridge-bottom",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    ThinQSensorEntityDescription(
+        key=RefrigeratorFeatures.WATER_FILTER,
+        name="Filtro dell'acqua",
+        icon="mdi:water-sync",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    ThinQSensorEntityDescription(
+        key=RefrigeratorFeatures.FRESHAIR_FILTER,
+        name="Filtro dell'aria",
+        icon="mdi:air-filter",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )
 
@@ -533,8 +532,6 @@ def _sensor_exist(
     lge_device: LGEDevice, sensor_desc: ThinQSensorEntityDescription
 ) -> bool:
     """Check if a sensor exist for device."""
-    _LOGGER.debug("DEFINE SENSOR (sensor_desc): %s", sensor_desc.key)
-    _LOGGER.debug("DEFINE SENSOR (value_fn): %s", sensor_desc.value_fn)
     if sensor_desc.value_fn is not None:
         return True
     feature = sensor_desc.key

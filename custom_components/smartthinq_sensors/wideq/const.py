@@ -103,14 +103,18 @@ class RefrigeratorFeatures(StrEnum):
     """Features for LG Refrigerator devices."""
 
     ECOFRIENDLY = "eco_friendly"
-    EXPRESSMODE = "express_mode"
     EXPRESSFRIDGE = "express_fridge"
-    FRESHAIRFILTER = "fresh_air_filter"
     FRESHAIRFILTER_REMAIN_PERC = "fresh_air_filter_remain_perc"
     ICEPLUS = "ice_plus"
     SMARTSAVINGMODE = "smart_saving_mode"
-    WATERFILTERUSED_MONTH = "water_filter_used_month"
     WATERFILTER_REMAIN_PERC = "water_filter_remain_perc"
+
+    FRIDGE = "fridge"
+    FREEZER = "freezer"
+    FRESHAIR_FILTER = "fresh_air_filter"
+    WATER_FILTER = "water_filter"
+    ICE_MAKER = "ice_maker"
+    EXPRESS_MODE = "express_mode"
 
 class WashDeviceFeatures(StrEnum):
     """Features for LG Wash devices."""

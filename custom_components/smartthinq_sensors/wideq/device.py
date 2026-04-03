@@ -42,7 +42,6 @@ LOCAL_LANG_PACK = {
     "INITIAL_BIT_ON": StateOptions.ON,
     "STANDBY_OFF": StateOptions.OFF,
     "STANDBY_ON": StateOptions.ON,
-    "@WM_EDD_REFILL_W": StateOptions.OFF,
     "IGNORE": StateOptions.NONE,
     "NONE": StateOptions.NONE,
     "NOT_USE": "Not Used",
@@ -55,7 +54,6 @@ MAX_INVALID_CREDENTIAL_ERR = 3
 SLEEP_BETWEEN_RETRIES = 2  # seconds
 
 _LOGGER = logging.getLogger(__name__)
-
 
 class Monitor:
     """
@@ -481,7 +479,7 @@ class Device:
             )
             if self._model_info is None:
                 return False
-
+            
         # load model language pack
         if self._model_lang_pack is None:
             self._model_lang_pack = await self._client.model_url_info(
@@ -692,7 +690,12 @@ class Device:
             except Exception as exc:  # pylint: disable=broad-except
                 _LOGGER.debug("Error calling pre_update function: %s", exc)
 
-        return await self._mon.refresh(query_device)
+        state = await self._mon.refresh(query_device)
+        
+        if state and isinstance(state, dict) and "online" in state:
+            self._device_info.update_data_value("online", state["online"])
+
+        return state
 
     async def _additional_poll(self, poll_interval: int):
         """Perform dedicated additional device poll with a slower rate."""
@@ -764,16 +767,21 @@ class Device:
         if self._model_info is None:
             if not await self.init_device_info():
                 return None
-
+                        
         # ThinQ V2 - Monitor data is with device info
         if not self._should_poll:
-            snapshot = await self._get_device_snapshot(thinq2_query_device)
-            if not snapshot:
+            snapshot_data = await self._get_device_snapshot(thinq2_query_device)
+            if not snapshot_data:
+                return None
+            
+            _LOGGER.debug("snapshot_data for %s: %s", self._device_info.name, snapshot_data)
+
+            if not self._device_info.isonline:
                 return None
             # do additional poll
             if additional_poll_interval_v2 > 0:
                 await self._additional_poll(additional_poll_interval_v2)
-            return self._model_info.decode_snapshot(snapshot, snapshot_key)
+            return self._model_info.decode_snapshot(snapshot_data, snapshot_key)
 
         # ThinQ V1 - Monitor data must be polled """
         data = None
@@ -818,14 +826,14 @@ class Device:
             return StateOptions.NONE
 
         text_value = LOCAL_LANG_PACK.get(enum_name)
+        if not text_value and self._local_lang_pack:
+            text_value = self._local_lang_pack.get(enum_name)
         if not text_value and self._model_lang_pack:
             if LANG_PACK in self._model_lang_pack:
                 text_value = self._model_lang_pack[LANG_PACK].get(enum_name)
         if not text_value and self._product_lang_pack:
             if LANG_PACK in self._product_lang_pack:
                 text_value = self._product_lang_pack[LANG_PACK].get(enum_name)
-        if not text_value and self._local_lang_pack:
-            text_value = self._local_lang_pack.get(enum_name)
         if not text_value:
             text_value = enum_name
 
@@ -1102,9 +1110,7 @@ class DeviceStatus:
             return StateOptions.ON
         return StateOptions.OFF
 
-    def _update_feature(
-        self, key, status, get_text=True, item_key=None, *, allow_none=False
-    ):
+    def _update_feature(self, key, status, get_text=True, item_key=None, *, allow_none=False):
         """Update the status features."""
         if not self._device.feature_title(key, item_key, status, allow_none):
             return None

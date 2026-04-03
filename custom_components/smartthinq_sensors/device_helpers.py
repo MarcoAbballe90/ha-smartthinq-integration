@@ -298,19 +298,17 @@ class LGERefrigeratorDevice(LGEBaseDevice):
             return TEMP_UNIT_LOOKUP.get(unit)
         return None
 
-    @property
+    """@property
     def dooropen_state(self):
-        """Return refrigerator door open state."""
         if self._api.state:
             state = self._api.state.door_opened_state
             return STATE_LOOKUP.get(state, STATE_OFF)
-        return STATE_OFF
+        return STATE_OFF"""
     
     @property
     def food_poison_index(self):
         """Ponte verso lo stato reale."""
         if not self._api.state:
-            _LOGGER.debug("GET PROPERTY (food_poison_index): %s", self._api.state.food_poison_index)
             return None
         return self._api.state.food_poison_index
 
@@ -345,10 +343,6 @@ class LGERangeDevice(LGEBaseDevice):
             return TEMP_UNIT_LOOKUP.get(unit)
         return None
     
-    """@property
-    def oven_mode(self):
-        if self._api.state:
-            return self._api.state.oven_mode"""
     @property
     def remote_start_enabled(self):
         if self._api.state:
@@ -372,7 +366,7 @@ class LGERangeDevice(LGEBaseDevice):
 
     @property
     def oven_cook_time(self):
-        if self._api.state and self._api.state.is_on:
+        if self._api.state:
             return self.time_to_text(self._api.state.oven_cook_time_hours, self._api.state.oven_cook_time_minutes)
         return self.time_to_text(None, None)
     

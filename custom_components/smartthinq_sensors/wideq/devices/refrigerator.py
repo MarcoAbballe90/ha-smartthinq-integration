@@ -12,12 +12,13 @@ from ..device import LABEL_BIT_OFF, LABEL_BIT_ON, Device, DeviceStatus
 from ..device_info import DeviceInfo
 from ..model_info import TYPE_ENUM
 
-FEATURE_DESCR = {
+FEATURE_KEY_IGNORE = "##IGNORE##"
+
+"""FEATURE_DESCR = {
     "@RE_TERM_EXPRESS_FREEZE_W": "express_freeze",
     "@RE_TERM_EXPRESS_FRIDGE_W": "express_cool",
     "@RE_TERM_ICE_PLUS_W": "ice_plus",
-}
-FEATURE_KEY_IGNORE = "##IGNORE##"
+}"""
 
 REFRTEMPUNIT = {
     "Ｆ": TemperatureUnit.FAHRENHEIT,
@@ -72,7 +73,7 @@ class RefrigeratorDevice(Device):
         self._freezer_temps = None
         self._freezer_ranges = None
 
-    def _get_feature_info(self, item_key):
+    """def _get_feature_info(self, item_key):
         config = self.model_info.config_value("visibleItems")
         if not config or not isinstance(config, list):
             return None
@@ -84,22 +85,28 @@ class RefrigeratorDevice(Device):
             feature_value = item.get(feature_key, "")
             if feature_value and feature_value == item_key:
                 return item
-        return None
+        return None"""
 
-    def _get_feature_title(self, feature_name, item_key):
+    """def _get_feature_title(self, feature_name, item_key):
         if item_key and item_key == FEATURE_KEY_IGNORE:
             return feature_name
-        item_info = self._get_feature_info(item_key)
-        if not item_info:
+        
+        config = self.model_info.config_value("visibleItems")
+        if not config or not isinstance(config, list):
             return None
+        
         if self.model_info.is_info_v2:
-            title_key = "monTitle"
+            feature_key = "feature"
         else:
-            title_key = "Title"
-        title_value = item_info.get(title_key)
-        if not title_value:
-            return feature_name
-        return FEATURE_DESCR.get(title_value, feature_name)
+            feature_key = "Feature"
+
+        for item in config:
+            feature_value = item.get(feature_key, "")
+            if feature_value and feature_value == item_key:
+                return feature_value
+            else:
+                return feature_name
+        return None"""
 
     def _prepare_command_v1(self, cmd, key, value):
         """Prepare command for specific ThinQ1 device."""
@@ -271,11 +278,7 @@ class RefrigeratorDevice(Device):
     @property
     def set_values_allowed(self):
         """Check if values can be changed."""
-        if (
-            not self._status
-            or not self._status.is_on
-            or self._status.eco_friendly_enabled
-        ):
+        if (not self._status or not self._status.is_on):
             return False
         return True
 
@@ -363,12 +366,12 @@ class RefrigeratorDevice(Device):
         """Poll the device's current state."""
 
         res = await self._device_poll(REFR_ROOT_DATA)
+        _LOGGER.debug("RefrigeratorDevice._device_poll('%s'): %s", REFR_ROOT_DATA, res)
         if not res:
             return None
 
         self._status = RefrigeratorStatus(self, res)
         return self._status
-
 
 class RefrigeratorStatus(DeviceStatus):
     """
@@ -441,16 +444,16 @@ class RefrigeratorStatus(DeviceStatus):
 
     def _get_temp_key(self, key):
         """Get used temperature unit key."""
-        temp_key = None
+        """temp_key = None
         if self.eco_friendly_enabled:
             temp_key = self._get_default_temp_index("ecoFriendlyDefaultIndex", key)
+        if temp_key is None:"""
+        if self.is_info_v2:
+            temp_key = self.int_or_none(self._data.get(key))
+        else:
+            temp_key = self._data.get(key)
         if temp_key is None:
-            if self.is_info_v2:
-                temp_key = self.int_or_none(self._data.get(key))
-            else:
-                temp_key = self._data.get(key)
-            if temp_key is None:
-                return None
+            return None
         return str(temp_key)
 
     def update_status(self, key, value):
@@ -498,9 +501,8 @@ class RefrigeratorStatus(DeviceStatus):
         """Return used temperature unit."""
         return self._get_temp_unit() or StateOptions.NONE
 
-    @property
+    """@property
     def door_opened_state(self):
-        """Return door opened state."""
         if self.is_info_v2:
             state = self._data.get("atLeastOneDoorOpen")
         else:
@@ -511,7 +513,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def eco_friendly_enabled(self):
-        """Return if eco friendly is enabled."""
         state = self._get_eco_friendly_state()
         if not state:
             return False
@@ -519,14 +520,12 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def eco_friendly_state(self):
-        """Return current eco friendly state."""
         key = STATE_ECO_FRIENDLY[1 if self.is_info_v2 else 0]
         status = self._get_eco_friendly_state()
         return self._update_feature(RefrigeratorFeatures.ECOFRIENDLY, status, True, key)
 
     @property
     def ice_plus_status(self):
-        """Return current ice plus status."""
         if self.is_info_v2:
             return None
         key = STATE_ICE_PLUS[0]
@@ -535,7 +534,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def express_fridge_status(self):
-        """Return current express fridge status."""
         if not self.is_info_v2:
             return None
         key = STATE_EXPRESS_FRIDGE[1]
@@ -546,7 +544,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def express_mode_status(self):
-        """Return current express mode status."""
         if not self.is_info_v2:
             return None
         key = STATE_EXPRESS_MODE[1]
@@ -555,7 +552,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def smart_saving_state(self):
-        """Return current smart saving state."""
         state = self.lookup_enum(["SmartSavingModeStatus", "smartSavingRun"])
         if not state:
             return StateOptions.NONE
@@ -563,7 +559,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def smart_saving_mode(self):
-        """Return current smart saving mode."""
         if self.is_info_v2:
             key = "smartSavingMode"
         else:
@@ -574,20 +569,16 @@ class RefrigeratorStatus(DeviceStatus):
         )
 
     @property
-    def fresh_air_filter_status(self):
-        """Return current fresh air filter status."""
+    def fresh_air_filter_state(self):
         if self.is_info_v2:
             key = "freshAirFilter"
         else:
             key = "FreshAirFilter"
         status = self.lookup_enum(key)
-        return self._update_feature(
-            RefrigeratorFeatures.FRESHAIRFILTER, status, True, key
-        )
+        return self._update_feature(RefrigeratorFeatures.FRESHAIRFILTER, status)
 
     @property
     def fresh_air_filter_remain_perc(self):
-        """Return fresh air filter remain percentage."""
         if not self.is_info_v2:
             return None
 
@@ -605,7 +596,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def water_filter_used_month(self):
-        """Return water filter used months."""
         if self.is_info_v2:
             key = "waterFilter"
         else:
@@ -627,7 +617,6 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def water_filter_remain_perc(self):
-        """Return water filter remain percentage."""
         if not self.is_info_v2:
             return None
 
@@ -642,22 +631,9 @@ class RefrigeratorStatus(DeviceStatus):
             False,
             FEATURE_KEY_IGNORE,
         )
-    
-    """@property
-    def food_poison_index(self):
-        if not self.is_info_v2:
-            return None
-
-        val = self._data.get("foodPoisonIndex")
-        _LOGGER.debug("CL@food_poison_index: %s", str(val))
-        if val is None:
-            return None
-
-        return self.to_int_or_none(val)"""
 
     @property
     def locked_state(self):
-        """Return current locked state."""
         state = self.lookup_enum("LockingStatus")
         if not state:
             return StateOptions.NONE
@@ -665,25 +641,62 @@ class RefrigeratorStatus(DeviceStatus):
 
     @property
     def active_saving_status(self):
-        """Return current active saving status."""
-        return self._data.get("ActiveSavingStatus", "N/A")    
+        return self._data.get("ActiveSavingStatus", "N/A")"""
+        
+    @property
+    def fridge_state(self):
+        status = self.lookup_enum("fridgeStatus")
+        if status is None:
+            return None
+        return self._update_feature(RefrigeratorFeatures.FRIDGE, status)
+        
+    @property
+    def freezer_state(self):
+        status = self.lookup_enum("freezerStatus")
+        if status is None:
+            return None
+        return self._update_feature(RefrigeratorFeatures.FREEZER, status)
     
+    @property
+    def water_filter_state(self):
+        status = self.lookup_enum("waterFilter")
+        if status is None:
+            return None
+        return self._update_feature(RefrigeratorFeatures.WATER_FILTER, status)
+
+    @property
+    def fresh_air_filter_state(self):
+        status = self.lookup_enum("freshAirFilter")
+        if status is None:
+            return None
+        return self._update_feature(RefrigeratorFeatures.FRESHAIR_FILTER, status)
+
+    @property
+    def ice_maker_state(self):
+        status = self.lookup_enum("iceMaker1Status")
+        if status is None:
+            return None
+        return self._update_feature(RefrigeratorFeatures.ICE_MAKER, status)
+    
+    @property
+    def express_mode_state(self):
+        status = self.lookup_enum(STATE_EXPRESS_MODE[1])
+        if status is None:
+            return None
+        return self._update_feature(RefrigeratorFeatures.EXPRESS_MODE, status)
+
     @property
     def food_poison_index(self):
         """Ritorna l'indice dal JSON grezzo."""        
         val = self._data.get("foodPoisonIndex")
-        _LOGGER.debug("GET RAW PROPERTY (foodPoisonIndex): %s", val)
         return self.to_int_or_none(val)
 
     def _update_features(self):
         _ = [
-            self.eco_friendly_state,
-            self.ice_plus_status,
-            self.express_fridge_status,
-            self.express_mode_status,
-            self.smart_saving_mode,
-            self.fresh_air_filter_status,
-            self.fresh_air_filter_remain_perc,
-            self.water_filter_used_month,
-            self.water_filter_remain_perc,
+            self.fridge_state,
+            self.freezer_state,
+            self.water_filter_state,
+            self.fresh_air_filter_state,
+            self.ice_maker_state,
+            self.express_mode_state
         ]

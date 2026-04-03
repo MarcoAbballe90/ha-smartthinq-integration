@@ -1,5 +1,5 @@
-[
-    {
+{
+    "ACTIVE": {
         "UpperOvenState": "PREHEATING",
         "UpperCookMode": "TOP_BOTTOM_HEAT",
         "UpperRemoteUsing": "DISABLE",
@@ -43,7 +43,7 @@
         "UpperTargetTempShow": "ENABLE",
         "CommonErrorCode": "NO_ERROR"
     },
-    {
+    "IGNORE": {
         "LowerOvenState": "INITIAL",
         "LowerCookMode": "NONE",
         "LowerRemoteUsing": "DISABLE",
@@ -108,4 +108,4 @@
         "CookTopAlarmSet": "255",
         "CooktopVolume": "NOT_DEFINE_VALUE value:3"
     }
-]
+}

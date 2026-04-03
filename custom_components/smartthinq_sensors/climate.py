@@ -97,11 +97,10 @@ class ThinQRefClimateEntityDescription(
 ):
     """A class that describes ThinQ climate entities."""
 
-
 REFRIGERATOR_CLIMATE: tuple[ThinQRefClimateEntityDescription, ...] = (
     ThinQRefClimateEntityDescription(
         key=ATTR_FRIDGE,
-        name="Fridge",
+        name="Frigorifero",
         icon="mdi:fridge-top",
         range_temp_fn=lambda x: x.device.fridge_target_temp_range,
         set_temp_fn=lambda x, y: x.device.set_fridge_target_temp(y),
@@ -109,14 +108,13 @@ REFRIGERATOR_CLIMATE: tuple[ThinQRefClimateEntityDescription, ...] = (
     ),
     ThinQRefClimateEntityDescription(
         key=ATTR_FREEZER,
-        name="Freezer",
+        name="Congelatore",
         icon="mdi:fridge-bottom",
         range_temp_fn=lambda x: x.device.freezer_target_temp_range,
         set_temp_fn=lambda x, y: x.device.set_freezer_target_temp(y),
         temp_fn=lambda x: x.temp_freezer,
     ),
 )
-
 
 def remove_prefix(text: str, prefix: str) -> str:
     """Remove a prefix from a string."""

@@ -528,8 +528,9 @@ class LGEDevice:
             # to provide proper notification
             async_dispatcher_send(self._hass, SIGNAL_RELOAD_ENTRY)
             return
-
-        self._available = True
+        
+        self._available = self.device.device_info.isonline
+        
         if state:
             _LOGGER.debug("ThinQ status updated")
             # l = dir(state)

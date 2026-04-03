@@ -21,7 +21,6 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from . import LGEDevice
 from .const import (
-    ATTR_DOOR_OPEN,
     ATTR_ERROR_STATE,
     ATTR_RUN_COMPLETED,
     DEFAULT_ICON,
@@ -170,6 +169,7 @@ WASH_DEV_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
     ),
 )
+
 RANGE_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ThinQBinarySensorEntityDescription(
         key="remote_start_enabled",
@@ -177,14 +177,16 @@ RANGE_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
         value_fn=lambda x: x.remote_start_enabled,
     ),
 )
+
 REFRIGERATOR_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
-    ThinQBinarySensorEntityDescription(
+    """ThinQBinarySensorEntityDescription(
         key=ATTR_DOOR_OPEN,
-        name="Door open",
+        name="Sportello",
         device_class=BinarySensorDeviceClass.DOOR,
         value_fn=lambda x: x.dooropen_state,
-    ),
+    ),"""
 )
+
 DEHUMIDIFIER_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ThinQBinarySensorEntityDescription(
         key=DehumidifierFeatures.WATER_TANK_FULL,
@@ -195,7 +197,7 @@ DEHUMIDIFIER_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
 BINARY_SENSOR_ENTITIES = {
     DeviceType.DEHUMIDIFIER: DEHUMIDIFIER_BINARY_SENSORS,
     DeviceType.RANGE: RANGE_BINARY_SENSORS,
-    DeviceType.REFRIGERATOR: REFRIGERATOR_BINARY_SENSORS,
+    #DeviceType.REFRIGERATOR: REFRIGERATOR_BINARY_SENSORS,
     **{dev_type: WASH_DEV_BINARY_SENSORS for dev_type in WASH_DEVICE_TYPES},
 }
 

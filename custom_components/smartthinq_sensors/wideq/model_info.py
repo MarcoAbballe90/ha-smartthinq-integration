@@ -23,12 +23,10 @@ TYPE_STRING = "string"
 
 _LOGGER = logging.getLogger(__name__)
 
-
 EnumValue = namedtuple("EnumValue", ["options"])
 RangeValue = namedtuple("RangeValue", ["min", "max", "step"])
 BitValue = namedtuple("BitValue", ["options"])
 ReferenceValue = namedtuple("ReferenceValue", ["reference"])
-
 
 class ModelInfo(ABC):
     """The base abstract class for a device model's capabilities."""
@@ -43,15 +41,15 @@ class ModelInfo(ABC):
         else:
             data = model_data
 
+        if ModelInfoV2.is_valid_model_data(data):
+            # this is new V2 model
+            return ModelInfoV2(data)
         if ModelInfoV2AC.is_valid_model_data(data):
             # this is new V2 model for AC
             return ModelInfoV2AC(data)
         if ModelInfoV1.is_valid_model_data(data):
             # this is old V1 model
             return ModelInfoV1(data)
-        if ModelInfoV2.is_valid_model_data(data):
-            # this is new V2 model
-            return ModelInfoV2(data)
         return None
 
     @staticmethod
@@ -621,7 +619,6 @@ class ModelInfoV1(ModelInfo):
             decoded[value_key] = str(value)
         return decoded
 
-
 class ModelInfoV2(ModelInfo):
     """A description of a device model's capabilities for type V2."""
 
@@ -768,7 +765,6 @@ class ModelInfoV2(ModelInfo):
     def decode_snapshot(self, data, key):
         """Decode snapshot data inside payload."""
         return data.get(key)
-
 
 class ModelInfoV2AC(ModelInfoV1):
     """

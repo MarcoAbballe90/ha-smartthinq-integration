@@ -17,5 +17,14 @@
         "@WM_STATE_REFRESHING_W": "Refreshing",
         "@WM_STATE_STEAMSOFTENING_W": "Steam Softening",
         "@WM_STATE_ERROR_W": "Error"
+    },
+    "it-IT": {
+        "@OV_STATE_INITIAL_W": "Spento",
+        "@OV_MP_WSED7613S_TERM_ECO_HOT_AIR_W": "Termoventilato Eco",
+        "@OV_MP_WSED7613S_TERM_SELF_CLEAN_W": "Pulizia pirolitica",
+        "@CP_TERM_USE_NOT_W": "Spenta",
+        "@RE_ICE_STATUS_MAKING_W": "In funzione",
+        "@RE_ICE_STATUS_FULL_W": "Contenitore pieno",
+        "@RE_ICE_STATUS_QUIET_W": "Modalità silenziosa attiva"
     }
 }

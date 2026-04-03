@@ -120,6 +120,11 @@ class DeviceInfo:
             vkey = key
 
         return self._data.get(vkey, default)
+    
+    
+    def update_data_value(self, key: str, value):
+        """Set data value for a specific key or list of keys."""
+        self._data[key] = value
 
     @property
     def model_id(self) -> str:

@@ -7,7 +7,7 @@
         "modelName": "2REFT1DII4P_U",
         "networkType": "WIFI",
         "version": "1.01",
-        "packageID" : "4456190144544101|1"
+        "packageID": "4456190144544101|1"
     },
     "Module": {
         "WPM": {
@@ -54,30 +54,132 @@
             "key": "IGNORE",
             "index": -1
         },
-        "upgradable" : {
-            "supportContentList" : [
-                {"contentId" : "101-0001", "name" : "anti glare range", "targetKey" : "antiGlareMode", "targetInfo" : "needToDefine", "detail" : "needToDefine"},
-                {"contentId" : "101-0002", "name" : "product alarm phase1", "targetKey" : "", "targetInfo" : "needToDefine", "detail" : {
-                    "optionList" : [{"key" : "fridgeDoorAlarm1", "label" : "@RE_UX35_PRODUCT_ALARM_MELODY1_W", "value" : "SOUND1"},
-                                     {"key" : "fridgeDoorAlarm2", "label" : "@RE_UX35_PRODUCT_ALARM_MELODY2_W", "value" : "SOUND2"}]
-                }},
-                {"contentId" : "101-0003", "name" : "product alarm phase2", "targetKey" : "", "targetInfo" : "needToDefine", "detail" : {
-                    "optionList" : [{"key" : "fridgeDoorAlarm3", "label" : "@RE_UX35_PRODUCT_ALARM_MELODY3_W", "value" : "SOUND3"}]
-                }},
-                {"contentId" : "101-0004", "name" : "product alarm phase3", "targetKey" : "", "targetInfo" : "needToDefine", "detail" : {
-                    "optionList" : [{"key" : "fridgeDoorAlarm4", "label" : "@RE_UX35_PRODUCT_ALARM_MELODY4_W", "value" : "SOUND4"}]
-                }},
-                {"contentId" : "101-0005", "name" : "KnockOn Brightness N Time", "targetKey" : "", "targetInfo" : "needToDefine", "detail" : "needToDefine"},
-                {"contentId" : "101-0006", "name" : "Display Touch Sound On Off", "targetKey" : "buzzerSoundOnOff", "targetInfo" : "needToDefine", "detail" : "needToDefine"},
-                {"contentId" : "101-0007", "name" : "Door Open Push Timer", "targetKey" : "doorOpenAlarmTime", "targetInfo" : "needToDefine", "detail" : {
-                    "optionList" : [ 60,90,120,150,180,210,240,270,300,360,420,480,540,600 ]
-                }},
-                {"contentId" : "RE-009-1", "name" : "Ice Drop Sound", "targetKey" : "iceDropSoundOnOff", "targetInfo" : "needToDefine", "detail" : "needToDefine"},                
-                {"contentId" : "RE-011-1", "name" : "Default water", "targetKey" : "dispenserDefaultSelect", "targetInfo" : "needToDefine", "detail" : "needToDefine", 
+        "upgradable": {
+            "supportContentList": [
+                {
+                    "contentId": "101-0001",
+                    "name": "anti glare range",
+                    "targetKey": "antiGlareMode",
+                    "targetInfo": "needToDefine",
+                    "detail": "needToDefine"
+                },
+                {
+                    "contentId": "101-0002",
+                    "name": "product alarm phase1",
+                    "targetKey": "",
+                    "targetInfo": "needToDefine",
+                    "detail": {
+                        "optionList": [
+                            {
+                                "key": "fridgeDoorAlarm1",
+                                "label": "@RE_UX35_PRODUCT_ALARM_MELODY1_W",
+                                "value": "SOUND1"
+                            },
+                            {
+                                "key": "fridgeDoorAlarm2",
+                                "label": "@RE_UX35_PRODUCT_ALARM_MELODY2_W",
+                                "value": "SOUND2"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "contentId": "101-0003",
+                    "name": "product alarm phase2",
+                    "targetKey": "",
+                    "targetInfo": "needToDefine",
+                    "detail": {
+                        "optionList": [
+                            {
+                                "key": "fridgeDoorAlarm3",
+                                "label": "@RE_UX35_PRODUCT_ALARM_MELODY3_W",
+                                "value": "SOUND3"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "contentId": "101-0004",
+                    "name": "product alarm phase3",
+                    "targetKey": "",
+                    "targetInfo": "needToDefine",
+                    "detail": {
+                        "optionList": [
+                            {
+                                "key": "fridgeDoorAlarm4",
+                                "label": "@RE_UX35_PRODUCT_ALARM_MELODY4_W",
+                                "value": "SOUND4"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "contentId": "101-0005",
+                    "name": "KnockOn Brightness N Time",
+                    "targetKey": "",
+                    "targetInfo": "needToDefine",
+                    "detail": "needToDefine"
+                },
+                {
+                    "contentId": "101-0006",
+                    "name": "Display Touch Sound On Off",
+                    "targetKey": "buzzerSoundOnOff",
+                    "targetInfo": "needToDefine",
+                    "detail": "needToDefine"
+                },
+                {
+                    "contentId": "101-0007",
+                    "name": "Door Open Push Timer",
+                    "targetKey": "doorOpenAlarmTime",
+                    "targetInfo": "needToDefine",
+                    "detail": {
+                        "optionList": [
+                            60,
+                            90,
+                            120,
+                            150,
+                            180,
+                            210,
+                            240,
+                            270,
+                            300,
+                            360,
+                            420,
+                            480,
+                            540,
+                            600
+                        ]
+                    }
+                },
+                {
+                    "contentId": "RE-009-1",
+                    "name": "Ice Drop Sound",
+                    "targetKey": "iceDropSoundOnOff",
+                    "targetInfo": "needToDefine",
+                    "detail": "needToDefine"
+                },
+                {
+                    "contentId": "RE-011-1",
+                    "name": "Default water",
+                    "targetKey": "dispenserDefaultSelect",
+                    "targetInfo": "needToDefine",
+                    "detail": "needToDefine",
                     "resourceInfo": {
-                       "250ml" : { "image": "", "label" : "@RE_UX35_TERM_CUBED_ICE_W", "_comment" : "각 얼음"},
-                       "500ml" : { "image": "", "label" : "@RE_UX35_TERM_WATER_N_W", "_comment" : "정수"},
-                       "1000ml": { "image": "", "label" : "@RE_UX35_TERM_PIECES_W", "_comment" : "조각 얼음"}
+                        "250ml": {
+                            "image": "",
+                            "label": "@RE_UX35_TERM_CUBED_ICE_W",
+                            "_comment": "각 얼음"
+                        },
+                        "500ml": {
+                            "image": "",
+                            "label": "@RE_UX35_TERM_WATER_N_W",
+                            "_comment": "정수"
+                        },
+                        "1000ml": {
+                            "image": "",
+                            "label": "@RE_UX35_TERM_PIECES_W",
+                            "_comment": "조각 얼음"
+                        }
                     }
                 }
             ]
@@ -88,22 +190,22 @@
         "fota": "true",
         "hasdoor": "Y",
         "blackBox": "Y",
-        "hasExchangables" : {           
-            "_comment" : "교체가능한 소모품이 있어서 나만의 소모품 구매 연결이 가능한 제품인 경우에만 true",
-            "value" : true
+        "hasExchangables": {
+            "_comment": "교체가능한 소모품이 있어서 나만의 소모품 구매 연결이 가능한 제품인 경우에만 true",
+            "value": true
         },
         "enableFilterManageMenu": true,
-        "supportCompartmentDetailStatus" : true,
-        "energyMonitorFunction" : {
+        "supportCompartmentDetailStatus": true,
+        "energyMonitorFunction": {
             "_comment": "0xC5 프로토콜로 에너지모니터링 데이터 보내는 모델에서 적용됨",
-            "supportList" : {
-                "waterUsage" : true,
-                "iceUsage"   : true,            
-                "doorOpenCnt" : true,
-                "doorOpenTime" : true
+            "supportList": {
+                "waterUsage": true,
+                "iceUsage": true,
+                "doorOpenCnt": true,
+                "doorOpenTime": true
             }
         },
-        "supportPowerGraph" : true,
+        "supportPowerGraph": true,
         "supportDoorOpenCntGraph": true,
         "supportDoorOpenTimeGraph": true,
         "nightMode": {
@@ -112,29 +214,36 @@
                 "comment": "NightMode 눈부심방지",
                 "available": true,
                 "previewPeriodSec": "10",
-                "modeSet": [{
+                "modeSet": [
+                    {
                         "title": "@CP_TERM_USE_NOT_W",
                         "value": "OFF"
-                    }, {
+                    },
+                    {
                         "title": "@RE_TERM_SUNSETRISE_W",
                         "value": "SUNSET_RISE"
-                    }, {
+                    },
+                    {
                         "title": "@RE_TERM_CUSTOMTIME_W",
                         "value": "CUSTOM"
                     }
                 ],
                 "brightness": {
                     "default": "30",
-                    "selectableSet": [{
+                    "selectableSet": [
+                        {
                             "value": "10",
                             "label": "10%"
-                        },{
+                        },
+                        {
                             "value": "30",
                             "label": "30%"
-                        }, {
+                        },
+                        {
                             "value": "50",
                             "label": "50%"
-                        }, {
+                        },
+                        {
                             "value": "70",
                             "label": "70%"
                         }
@@ -145,10 +254,12 @@
                 "comment": "NightMode 조용히",
                 "available": true,
                 "previewPeriodSec": "10",
-                "modeSet": [{
+                "modeSet": [
+                    {
                         "title": "@CP_TERM_USE_NOT_W",
                         "value": "OFF"
-                    }, {
+                    },
+                    {
                         "title": "@RE_TERM_CUSTOMTIME_W",
                         "value": "CUSTOM"
                     }
@@ -282,76 +393,87 @@
                 "image": "wpm/GRM/image/ref_sidemenu_btn_shopping.png"
             }
         },
-        "visibleItems": [{
+        "visibleItems": [
+            {
                 "feature": "fridgeTemp",
                 "imageUrl": "",
                 "monTitle": "@RE_TERM_FRIDGE_W",
                 "controlTitle": "@RE_TERM_FRIDGE_W",
-                "controlDisabledOption": [{
+                "controlDisabledOption": [
+                    {
                         "optionValue": "@CP_OFF_EN_W",
                         "replaceOptionValue": "IGNORE"
                     }
                 ]
-            }, {
+            },
+            {
                 "feature": "freezerTemp",
                 "imageUrl": "",
                 "monTitle": "@RE_TERM_FREEZER_W",
                 "controlTitle": "@RE_TERM_FREEZER_W",
-                "controlDisabledOption": [{
+                "controlDisabledOption": [
+                    {
                         "optionValue": "@CP_OFF_EN_W",
                         "replaceOptionValue": "IGNORE"
                     }
                 ]
-            }, {
+            },
+            {
                 "feature": "freshAirFilter",
                 "imageUrl": "image/icon_fridge_fresh.png",
                 "monTitle": "@RE_TERM_HYGIENE_FILTER_W",
                 "controlTitle": "@RE_TERM_HYGIENE_FILTER_W",
                 "templateType": "NONE",
                 "description": "@RE_FRESH_AIR_FILTER_DESC_S"
-            }, {
+            },
+            {
                 "feature": "expressMode",
                 "imageUrl": "image/icon_fridge_ice.png",
                 "monTitle": "@RE_TERM_EXPRESS_FREEZE_W",
                 "controlTitle": "@RE_TERM_EXPRESS_FREEZE_W",
                 "templateType": "typeSwitch.html"
-            }, {
+            },
+            {
                 "feature": "smartCareV2",
                 "imageUrl": "wpm/GRM/image/ref_home_ic_smartcare.png",
                 "monTitle": "@RE_SMARTCARE_RUN_V2_W",
                 "controlTitle": "@RE_SMARTCARE_RUN_V2_W",
                 "templateType": "NONE"
-            }, {
-                "feature" : "antiGlareMode",
-                "imageUrl": "image/icon_fridge_smart saving.png", 
-                "monTitle": "@RE_UX30_NIGHT_ANTIGLAREMODE_W", 
-                "controlTitle": "@RE_UX30_NIGHT_ANTIGLAREMODE_W", 
+            },
+            {
+                "feature": "antiGlareMode",
+                "imageUrl": "image/icon_fridge_smart saving.png",
+                "monTitle": "@RE_UX30_NIGHT_ANTIGLAREMODE_W",
+                "controlTitle": "@RE_UX30_NIGHT_ANTIGLAREMODE_W",
                 "templateType": "typeIndicatorSimple2Line.html",
-                "upgradable" : {
-                    "contentId" : "101-0001"
-                } 
-            }, {
-                "feature" : "nightQuietMode",
+                "upgradable": {
+                    "contentId": "101-0001"
+                }
+            },
+            {
+                "feature": "nightQuietMode",
                 "imageUrl": "image/icon_fridge_smart saving.png",
                 "monTitle": "@RE_UX30_NIGHT_QUIETMODE_W",
                 "controlTitle": "@RE_UX30_NIGHT_QUIETMODE_W",
-                "templateType": "typeIndicatorSimple2Line.html" 
-            }, {
-                "feature" : "iceMakerDetailInfo", 
-                "imageUrl": "image/dummy.png", 
-                "monTitle": "@RE_UX30_ICEMAKER_W", 
-                "controlTitle": "@RE_UX30_ICEMAKER_W", 
+                "templateType": "typeIndicatorSimple2Line.html"
+            },
+            {
+                "feature": "iceMakerDetailInfo",
+                "imageUrl": "image/dummy.png",
+                "monTitle": "@RE_UX30_ICEMAKER_W",
+                "controlTitle": "@RE_UX30_ICEMAKER_W",
                 "templateType": "typeIndicator.html",
-                "iceMakerList" : [
+                "iceMakerList": [
                     {
-                        "_comment" : "오토 아이스메이커, iceMakerList 의 가장 마지막에 추가되어야함(순서중요)",
-                        "feature" : "iceMaker1Status",
-                        "label" : "@RE_TERM_ICEMAKER_AUTO_W",
-                        "labelFooter" : "@RE_UX30_ICEMAKER_DETAIL_FOOTER_AUTO_S",
+                        "_comment": "오토 아이스메이커, iceMakerList 의 가장 마지막에 추가되어야함(순서중요)",
+                        "feature": "iceMaker1Status",
+                        "label": "@RE_TERM_ICEMAKER_AUTO_W",
+                        "labelFooter": "@RE_UX30_ICEMAKER_DETAIL_FOOTER_AUTO_S",
                         "locationDesc": "@RE_UX30_ICEMAKER1_LOCATION_DESC_S"
-                    }                 
+                    }
                 ]
-            }, {
+            },
+            {
                 "feature": "waterFilter",
                 "imageUrl": "image/ref_home_ic_waterfilter.png",
                 "monTitle": "@RE_NEW_TERM_WATER_FILTER_W",
@@ -1716,263 +1838,661 @@
             "_comment": "Monitoring data number",
             "dataType": "number"
         },
-        "nightAntiGlareMode":{
+        "nightAntiGlareMode": {
             "dataType": "enum",
             "default": "0",
             "_comment": "눈부심방지 설정상태. VS4,6 이후 모델부터는 해당 모니터링 데이터를 제품에서 보내줌(앱에서는 미사용)",
-            "visibleItem" : {
-                "monitoringIndex" : [],
-                "controlIndex"    : []
+            "visibleItem": {
+                "monitoringIndex": [],
+                "controlIndex": []
             },
             "valueMapping": {
-                "OFF"         : {"index" : 0,    "label" : "OFF", "_comment" : ""},
-                "EVERY_DAY"   : {"index" : 1,    "label" : "EVERY_DAY", "_comment" : ""},
-                "SUNSET_RISE" : {"index" : 2,    "label" : "SUNSET_RISE", "_comment" : ""},
-                "CUSTOM"      : {"index" : 3,    "label" : "CUSTOM", "_comment" : ""},
-                "IGNORE"      : {"index" : 255,  "label" : "IGNORE", "_comment" : ""}
+                "OFF": {
+                    "index": 0,
+                    "label": "OFF",
+                    "_comment": ""
+                },
+                "EVERY_DAY": {
+                    "index": 1,
+                    "label": "EVERY_DAY",
+                    "_comment": ""
+                },
+                "SUNSET_RISE": {
+                    "index": 2,
+                    "label": "SUNSET_RISE",
+                    "_comment": ""
+                },
+                "CUSTOM": {
+                    "index": 3,
+                    "label": "CUSTOM",
+                    "_comment": ""
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
-        "nightQuietMode":{
+        "nightQuietMode": {
             "dataType": "enum",
             "default": "0",
             "_comment": "조용히 모드 설정상태. VS4,6 이후 모델부터는 해당 모니터링 데이터를 제품에서 보내줌(앱에서는 미사용)",
-            "visibleItem" : {
-                "monitoringIndex" : [],
-                "controlIndex"    : []
+            "visibleItem": {
+                "monitoringIndex": [],
+                "controlIndex": []
             },
             "valueMapping": {
-                "OFF"         : {"index" : 0,    "label" : "OFF", "_comment" : ""},
-                "EVERY_DAY"   : {"index" : 1,    "label" : "EVERY_DAY", "_comment" : ""},
-                "SUNSET_RISE" : {"index" : 2,    "label" : "SUNSET_RISE", "_comment" : ""},
-                "CUSTOM"      : {"index" : 3,    "label" : "CUSTOM", "_comment" : ""},
-                "IGNORE"      : {"index" : 255,  "label" : "IGNORE", "_comment" : ""}
+                "OFF": {
+                    "index": 0,
+                    "label": "OFF",
+                    "_comment": ""
+                },
+                "EVERY_DAY": {
+                    "index": 1,
+                    "label": "EVERY_DAY",
+                    "_comment": ""
+                },
+                "SUNSET_RISE": {
+                    "index": 2,
+                    "label": "SUNSET_RISE",
+                    "_comment": ""
+                },
+                "CUSTOM": {
+                    "index": 3,
+                    "label": "CUSTOM",
+                    "_comment": ""
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
-        },        
+        },
         "fridgeStatus": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2, 3, 4, 5, 14, 15],
-                "controlIndex"    : []
-            },          
-            "doorImage" : "wpm/GRP/image/ux30/common/img_popup_ref_compartment_top.png",
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    14,
+                    15
+                ],
+                "controlIndex": []
+            },
+            "doorImage": "wpm/GRP/image/ux30/common/img_popup_ref_compartment_top.png",
             "valueMapping": {
-                "OFF"      : {"index" : 0,    "label" : "@CP_OFF_EN_W", "_comment" : ""},
-                "GOOD"     : {"index" : 1,    "label" : "@RE_ROOM_STATUS_GOOD_S", "_comment" : "", "descriptions":[]},
-                "VERYHIGH" : {"index" : 2,    "label" : "@RE_ROOM_STATUS_VERYHIGH_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_VHIGH1_S","@RE_ROOM_STATUS_DESC_VHIGH2_S"]},
-                "HIGH"     : {"index" : 3,    "label" : "@RE_ROOM_STATUS_HIGH_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_HIGH1_S","@RE_ROOM_STATUS_DESC_HIGH2_S","@RE_ROOM_STATUS_DESC_HIGH3_S"]},
-                "LOW"      : {"index" : 4,    "label" : "@RE_ROOM_STATUS_LOW_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_LOW1_S","@RE_ROOM_STATUS_DESC_LOW2_S","@RE_ROOM_STATUS_DESC_LOW3_S"]},
-                "STABLIZING"  : {"index" : 5,    "label" : "@RE_ROOM_STATUS_STABLIZING_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_STABLIZE1_S"]},
-                "SENSOR_ERROR": {"index" : 14,   "label" : "@RE_ROOM_STATUS_ERROR_S", "_comment" : "센서Error", "descriptions":["@RE_ROOM_STATUS_DESC_ERR1_S","@RE_ROOM_STATUS_DESC_ERR2_S"]},
-                "UNCERTAIN"   : {"index" : 15,   "label" : "", "_comment" : "", "descriptions":[]},             
-                "IGNORE" :{"index" : 255,  "label" : "IGNORE", "_comment" : "", "descriptions":[]}
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_OFF_EN_W",
+                    "_comment": ""
+                },
+                "GOOD": {
+                    "index": 1,
+                    "label": "@RE_ROOM_STATUS_GOOD_S",
+                    "_comment": "",
+                    "descriptions": []
+                },
+                "VERYHIGH": {
+                    "index": 2,
+                    "label": "@RE_ROOM_STATUS_VERYHIGH_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_VHIGH1_S",
+                        "@RE_ROOM_STATUS_DESC_VHIGH2_S"
+                    ]
+                },
+                "HIGH": {
+                    "index": 3,
+                    "label": "@RE_ROOM_STATUS_HIGH_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_HIGH1_S",
+                        "@RE_ROOM_STATUS_DESC_HIGH2_S",
+                        "@RE_ROOM_STATUS_DESC_HIGH3_S"
+                    ]
+                },
+                "LOW": {
+                    "index": 4,
+                    "label": "@RE_ROOM_STATUS_LOW_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_LOW1_S",
+                        "@RE_ROOM_STATUS_DESC_LOW2_S",
+                        "@RE_ROOM_STATUS_DESC_LOW3_S"
+                    ]
+                },
+                "STABLIZING": {
+                    "index": 5,
+                    "label": "@RE_ROOM_STATUS_STABLIZING_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_STABLIZE1_S"
+                    ]
+                },
+                "SENSOR_ERROR": {
+                    "index": 14,
+                    "label": "@RE_ROOM_STATUS_ERROR_S",
+                    "_comment": "센서Error",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_ERR1_S",
+                        "@RE_ROOM_STATUS_DESC_ERR2_S"
+                    ]
+                },
+                "UNCERTAIN": {
+                    "index": 15,
+                    "label": "",
+                    "_comment": "",
+                    "descriptions": []
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": "",
+                    "descriptions": []
+                }
             }
         },
         "convertibleStatus": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2, 3, 4, 5, 14, 15],
-                "controlIndex"    : []
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    14,
+                    15
+                ],
+                "controlIndex": []
             },
-            "doorImage" : "wpm/GRP/image/ux30/common/img_popup_ref_compartment_top.png",
+            "doorImage": "wpm/GRP/image/ux30/common/img_popup_ref_compartment_top.png",
             "valueMapping": {
-                "OFF"      : {"index" : 0,    "label" : "@CP_OFF_EN_W", "_comment" : ""},
-                "GOOD"     : {"index" : 1,    "label" : "@RE_ROOM_STATUS_GOOD_S", "_comment" : "", "descriptions":[]},
-                "VERYHIGH" : {"index" : 2,    "label" : "@RE_ROOM_STATUS_VERYHIGH_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_VHIGH1_S","@RE_ROOM_STATUS_DESC_VHIGH2_S"]},
-                "HIGH"     : {"index" : 3,    "label" : "@RE_ROOM_STATUS_HIGH_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_HIGH1_S","@RE_ROOM_STATUS_DESC_HIGH2_S","@RE_ROOM_STATUS_DESC_HIGH3_S"]},
-                "LOW"      : {"index" : 4,    "label" : "@RE_ROOM_STATUS_LOW_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_LOW1_S","@RE_ROOM_STATUS_DESC_LOW2_S","@RE_ROOM_STATUS_DESC_LOW3_S"]},
-                "STABLIZING"  : {"index" : 5,    "label" : "@RE_ROOM_STATUS_STABLIZING_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_STABLIZE1_S"]},
-                "SENSOR_ERROR": {"index" : 14,   "label" : "@RE_ROOM_STATUS_ERROR_S", "_comment" : "센서Error", "descriptions":["@RE_ROOM_STATUS_DESC_ERR1_S","@RE_ROOM_STATUS_DESC_ERR2_S"]},
-                "UNCERTAIN"   : {"index" : 15,   "label" : "", "_comment" : "", "descriptions":[]},             
-                "IGNORE" :{"index" : 255,  "label" : "IGNORE", "_comment" : "", "descriptions":[]}
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_OFF_EN_W",
+                    "_comment": ""
+                },
+                "GOOD": {
+                    "index": 1,
+                    "label": "@RE_ROOM_STATUS_GOOD_S",
+                    "_comment": "",
+                    "descriptions": []
+                },
+                "VERYHIGH": {
+                    "index": 2,
+                    "label": "@RE_ROOM_STATUS_VERYHIGH_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_VHIGH1_S",
+                        "@RE_ROOM_STATUS_DESC_VHIGH2_S"
+                    ]
+                },
+                "HIGH": {
+                    "index": 3,
+                    "label": "@RE_ROOM_STATUS_HIGH_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_HIGH1_S",
+                        "@RE_ROOM_STATUS_DESC_HIGH2_S",
+                        "@RE_ROOM_STATUS_DESC_HIGH3_S"
+                    ]
+                },
+                "LOW": {
+                    "index": 4,
+                    "label": "@RE_ROOM_STATUS_LOW_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_LOW1_S",
+                        "@RE_ROOM_STATUS_DESC_LOW2_S",
+                        "@RE_ROOM_STATUS_DESC_LOW3_S"
+                    ]
+                },
+                "STABLIZING": {
+                    "index": 5,
+                    "label": "@RE_ROOM_STATUS_STABLIZING_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_STABLIZE1_S"
+                    ]
+                },
+                "SENSOR_ERROR": {
+                    "index": 14,
+                    "label": "@RE_ROOM_STATUS_ERROR_S",
+                    "_comment": "센서Error",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_ERR1_S",
+                        "@RE_ROOM_STATUS_DESC_ERR2_S"
+                    ]
+                },
+                "UNCERTAIN": {
+                    "index": 15,
+                    "label": "",
+                    "_comment": "",
+                    "descriptions": []
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": "",
+                    "descriptions": []
+                }
             }
         },
         "freezerStatus": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2, 3, 4, 5, 14, 15],
-                "controlIndex"    : []
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    14,
+                    15
+                ],
+                "controlIndex": []
             },
-            "doorImage" : "wpm/GRP/image/ux30/common/img_popup_ref_compartment_bottom.png",
+            "doorImage": "wpm/GRP/image/ux30/common/img_popup_ref_compartment_bottom.png",
             "valueMapping": {
-                "OFF"      : {"index" : 0,    "label" : "@CP_OFF_EN_W", "_comment" : ""},
-                "GOOD"     : {"index" : 1,    "label" : "@RE_ROOM_STATUS_GOOD_S", "_comment" : "", "descriptions":[]},
-                "VERYHIGH" : {"index" : 2,    "label" : "@RE_ROOM_STATUS_VERYHIGH_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_VHIGH1_S","@RE_ROOM_STATUS_DESC_VHIGH2_S"]},
-                "HIGH"     : {"index" : 3,    "label" : "@RE_ROOM_STATUS_HIGH_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_HIGH1_S","@RE_ROOM_STATUS_DESC_HIGH2_S","@RE_ROOM_STATUS_DESC_HIGH3_S"]},
-                "LOW"      : {"index" : 4,    "label" : "@RE_ROOM_STATUS_LOW_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_LOW1_S","@RE_ROOM_STATUS_DESC_LOW2_S","@RE_ROOM_STATUS_DESC_LOW3_S"]},
-                "STABLIZING"  : {"index" : 5,    "label" : "@RE_ROOM_STATUS_STABLIZING_S", "_comment" : "", "descriptions":["@RE_ROOM_STATUS_DESC_STABLIZE1_S"]},
-                "SENSOR_ERROR": {"index" : 14,   "label" : "@RE_ROOM_STATUS_ERROR_S", "_comment" : "센서Error", "descriptions":["@RE_ROOM_STATUS_DESC_ERR1_S","@RE_ROOM_STATUS_DESC_ERR2_S"]},
-                "UNCERTAIN"   : {"index" : 15,   "label" : "", "_comment" : "", "descriptions":[]},             
-                "IGNORE" :{"index" : 255,  "label" : "IGNORE", "_comment" : "", "descriptions":[]}
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_OFF_EN_W",
+                    "_comment": ""
+                },
+                "GOOD": {
+                    "index": 1,
+                    "label": "@RE_ROOM_STATUS_GOOD_S",
+                    "_comment": "",
+                    "descriptions": []
+                },
+                "VERYHIGH": {
+                    "index": 2,
+                    "label": "@RE_ROOM_STATUS_VERYHIGH_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_VHIGH1_S",
+                        "@RE_ROOM_STATUS_DESC_VHIGH2_S"
+                    ]
+                },
+                "HIGH": {
+                    "index": 3,
+                    "label": "@RE_ROOM_STATUS_HIGH_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_HIGH1_S",
+                        "@RE_ROOM_STATUS_DESC_HIGH2_S",
+                        "@RE_ROOM_STATUS_DESC_HIGH3_S"
+                    ]
+                },
+                "LOW": {
+                    "index": 4,
+                    "label": "@RE_ROOM_STATUS_LOW_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_LOW1_S",
+                        "@RE_ROOM_STATUS_DESC_LOW2_S",
+                        "@RE_ROOM_STATUS_DESC_LOW3_S"
+                    ]
+                },
+                "STABLIZING": {
+                    "index": 5,
+                    "label": "@RE_ROOM_STATUS_STABLIZING_S",
+                    "_comment": "",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_STABLIZE1_S"
+                    ]
+                },
+                "SENSOR_ERROR": {
+                    "index": 14,
+                    "label": "@RE_ROOM_STATUS_ERROR_S",
+                    "_comment": "센서Error",
+                    "descriptions": [
+                        "@RE_ROOM_STATUS_DESC_ERR1_S",
+                        "@RE_ROOM_STATUS_DESC_ERR2_S"
+                    ]
+                },
+                "UNCERTAIN": {
+                    "index": 15,
+                    "label": "",
+                    "_comment": "",
+                    "descriptions": []
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": "",
+                    "descriptions": []
+                }
             }
         },
         "iceMaker1Status": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2],
-                "controlIndex"    : []
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2
+                ],
+                "controlIndex": []
             },
             "valueMapping": {
-                "OFF"       :{
-                    "index" : 0,
-                    "label" : "@CP_TERM_USE_NOT_W",
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_auto_03.png",
-                    "description" : ""
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_TERM_USE_NOT_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_auto_03.png",
+                    "description": ""
                 },
-                "ICE_MAKING":{
-                    "index" : 1,    
-                    "label" : "@RE_ICE_STATUS_MAKING_W",
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_auto_01.png",
-                    "description" : ""
+                "ICE_MAKING": {
+                    "index": 1,
+                    "label": "@RE_ICE_STATUS_MAKING_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_auto_01.png",
+                    "description": ""
                 },
-                "ICE_FULL"  :{
-                    "index" : 2,    
-                    "label" : "@RE_ICE_STATUS_FULL_W", 
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_auto_02.png",
-                    "description" : ""
+                "ICE_FULL": {
+                    "index": 2,
+                    "label": "@RE_ICE_STATUS_FULL_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_auto_02.png",
+                    "description": ""
                 },
-                "QUIET_MODE"  :{
-                    "index" : 3,    
-                    "label" : "@RE_ICE_STATUS_QUIET_W", 
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_night.png",
-                    "description" : ""
+                "QUIET_MODE": {
+                    "index": 3,
+                    "label": "@RE_ICE_STATUS_QUIET_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_night.png",
+                    "description": ""
                 },
-                "IGNORE"    :{"index" : 255,  "label" : "IGNORE", "_comment" : ""}              
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
         "iceMaker2Status": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2],
-                "controlIndex"    : []
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2
+                ],
+                "controlIndex": []
             },
             "valueMapping": {
-                "OFF"       :{"index" : 0,    "label" : "@CP_TERM_USE_NOT_W", "_comment" : ""},
-                "ICE_MAKING":{"index" : 1,    "label" : "@RE_ICE_STATUS_MAKING_W", "_comment" : ""},
-                "ICE_FULL"  :{"index" : 2,    "label" : "@RE_ICE_STATUS_FULL_W", "_comment" : ""},
-                "QUIET_MODE":{"index" : 3,    "label" : "@RE_ICE_STATUS_QUIET_W", "_comment" : ""},
-                "IGNORE"    :{"index" : 255,  "label" : "IGNORE", "_comment" : ""}      
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_TERM_USE_NOT_W",
+                    "_comment": ""
+                },
+                "ICE_MAKING": {
+                    "index": 1,
+                    "label": "@RE_ICE_STATUS_MAKING_W",
+                    "_comment": ""
+                },
+                "ICE_FULL": {
+                    "index": 2,
+                    "label": "@RE_ICE_STATUS_FULL_W",
+                    "_comment": ""
+                },
+                "QUIET_MODE": {
+                    "index": 3,
+                    "label": "@RE_ICE_STATUS_QUIET_W",
+                    "_comment": ""
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
         "iceMaker3Status": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2],
-                "controlIndex"    : [0, 1, 2]
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2
+                ],
+                "controlIndex": [
+                    0,
+                    1,
+                    2
+                ]
             },
             "valueMapping": {
-                "OFF"       :{
-                    "index" : 0,
-                    "label" : "@CP_TERM_USE_NOT_W",
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_craft_03.png",
-                    "description" : ""
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_TERM_USE_NOT_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_craft_03.png",
+                    "description": ""
                 },
-                "ICE_MAKING":{
-                    "index" : 1,    
-                    "label" : "@RE_ICE_STATUS_MAKING_W",
-                    "_comment" : "",
-                    "imageUrl3Ea" : "wpm/GRP/image/ux30/common/img_ice_maker_craft_01.png",
-                    "imageUrl6Ea" : "wpm/GRP/image/ux30/common/img_ice_maker_craft_6_01.png",
-                    "description" : ""
+                "ICE_MAKING": {
+                    "index": 1,
+                    "label": "@RE_ICE_STATUS_MAKING_W",
+                    "_comment": "",
+                    "imageUrl3Ea": "wpm/GRP/image/ux30/common/img_ice_maker_craft_01.png",
+                    "imageUrl6Ea": "wpm/GRP/image/ux30/common/img_ice_maker_craft_6_01.png",
+                    "description": ""
                 },
-                "ICE_FULL"  :{
-                    "index" : 2,    
-                    "label" : "@RE_ICE_STATUS_FULL_W", 
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_craft_02.png",
-                    "description" : ""
+                "ICE_FULL": {
+                    "index": 2,
+                    "label": "@RE_ICE_STATUS_FULL_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_craft_02.png",
+                    "description": ""
                 },
-                "QUIET_MODE"  :{
-                    "index" : 3,    
-                    "label" : "@RE_ICE_STATUS_QUIET_W", 
-                    "_comment" : "",
-                    "imageUrl" : "wpm/GRP/image/ux30/common/img_ice_maker_night.png",
-                    "description" : ""
+                "QUIET_MODE": {
+                    "index": 3,
+                    "label": "@RE_ICE_STATUS_QUIET_W",
+                    "_comment": "",
+                    "imageUrl": "wpm/GRP/image/ux30/common/img_ice_maker_night.png",
+                    "description": ""
                 },
-                "IGNORE"    :{"index" : 255,  "label" : "IGNORE", "_comment" : ""}      
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
-        "doorAlarmSound":{
+        "doorAlarmSound": {
             "dataType": "enum",
             "default": "DEFAULT",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2, 3, 4],
-                "controlIndex"    : [0, 1, 2, 3, 4]
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "controlIndex": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ]
             },
-           "valueMapping": {
-                "DEFAULT" : {"index" : 0,    "label" : "@RE_UX35_PRODUCT_ALARM_MELODY_DEFAULT_W", "key" : "fridgeDoorAlarm_default", "_comment" : ""},
-                "SOUND1"  : {"index" : 1,    "label" : "@RE_UX35_PRODUCT_ALARM_MELODY1_W", "key" : "fridgeDoorAlarm1", "_comment" : ""},
-                "SOUND2"  : {"index" : 2,    "label" : "@RE_UX35_PRODUCT_ALARM_MELODY2_W", "key" : "fridgeDoorAlarm2", "_comment" : ""},
-                "SOUND3"  : {"index" : 3,    "label" : "@RE_UX35_PRODUCT_ALARM_MELODY3_W", "key" : "fridgeDoorAlarm3", "_comment" : ""},
-                "SOUND4"  : {"index" : 4,    "label" : "@RE_UX35_PRODUCT_ALARM_MELODY4_W", "key" : "fridgeDoorAlarm4", "_comment" : ""},
-                "IGNORE"  : {"index" : 255,  "label" : "IGNORE", "_comment" : ""}
+            "valueMapping": {
+                "DEFAULT": {
+                    "index": 0,
+                    "label": "@RE_UX35_PRODUCT_ALARM_MELODY_DEFAULT_W",
+                    "key": "fridgeDoorAlarm_default",
+                    "_comment": ""
+                },
+                "SOUND1": {
+                    "index": 1,
+                    "label": "@RE_UX35_PRODUCT_ALARM_MELODY1_W",
+                    "key": "fridgeDoorAlarm1",
+                    "_comment": ""
+                },
+                "SOUND2": {
+                    "index": 2,
+                    "label": "@RE_UX35_PRODUCT_ALARM_MELODY2_W",
+                    "key": "fridgeDoorAlarm2",
+                    "_comment": ""
+                },
+                "SOUND3": {
+                    "index": 3,
+                    "label": "@RE_UX35_PRODUCT_ALARM_MELODY3_W",
+                    "key": "fridgeDoorAlarm3",
+                    "_comment": ""
+                },
+                "SOUND4": {
+                    "index": 4,
+                    "label": "@RE_UX35_PRODUCT_ALARM_MELODY4_W",
+                    "key": "fridgeDoorAlarm4",
+                    "_comment": ""
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
-        "buzzerSoundOnOff":{
+        "buzzerSoundOnOff": {
             "dataType": "enum",
             "default": "0",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1],
-                "controlIndex"    : [0, 1]
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1
+                ],
+                "controlIndex": [
+                    0,
+                    1
+                ]
             },
             "valueMapping": {
-                "OFF"    : {"index" : 0,    "label" : "@CP_OFF_EN_W", "_comment" : ""},
-                "ON"     : {"index" : 1,    "label" : "@CP_ON_EN_W", "_comment" : ""},
-                "IGNORE" : {"index" : 255,  "label" : "IGNORE", "_comment" : ""}
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_OFF_EN_W",
+                    "_comment": ""
+                },
+                "ON": {
+                    "index": 1,
+                    "label": "@CP_ON_EN_W",
+                    "_comment": ""
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
-        "doorOpenAlarmTime":{
-             "_comment": "Fridge Target Temperature",
+        "doorOpenAlarmTime": {
+            "_comment": "Fridge Target Temperature",
             "dataType": "number",
             "default": 65535
         },
-        "dispenserDefaultSelect":{
+        "dispenserDefaultSelect": {
             "_comment": "정수 기본출수 설정",
             "dataType": "enum",
             "default": "0",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1, 2, 3],
-                "controlIndex"    : [0, 1, 2, 3]
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "controlIndex": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
             },
-            "valueMapping": {                
-                "250ml"  : {"index" : 0,    "label" : "@RE_UX35_TERM_CUBED_ICE_W", "_comment" : "각 얼음"},
-                "500ml"  : {"index" : 1,    "label" : "@RE_UX35_TERM_WATER_N_W", "_comment" : "정수"},
-                "1000ml" : {"index" : 2,    "label" : "@RE_UX35_TERM_PIECES_W", "_comment" : "조각 얼음"},
-                "DEFAULT"  : {"index" : 3,    "label" : "@RE_UX35_TERM_LAST_SETTING_W", "_comment" : "마지막 사용"},
-                "IGNORE" : {"index" : 255,  "label" : "IGNORE", "_comment" : ""}
+            "valueMapping": {
+                "250ml": {
+                    "index": 0,
+                    "label": "@RE_UX35_TERM_CUBED_ICE_W",
+                    "_comment": "각 얼음"
+                },
+                "500ml": {
+                    "index": 1,
+                    "label": "@RE_UX35_TERM_WATER_N_W",
+                    "_comment": "정수"
+                },
+                "1000ml": {
+                    "index": 2,
+                    "label": "@RE_UX35_TERM_PIECES_W",
+                    "_comment": "조각 얼음"
+                },
+                "DEFAULT": {
+                    "index": 3,
+                    "label": "@RE_UX35_TERM_LAST_SETTING_W",
+                    "_comment": "마지막 사용"
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
             }
         },
-        "iceDropSoundOnOff":{
+        "iceDropSoundOnOff": {
             "dataType": "enum",
             "default": "OFF",
             "_comment": "",
-            "visibleItem" : {
-                "monitoringIndex" : [0, 1],
-                "controlIndex"    : [0, 1]
+            "visibleItem": {
+                "monitoringIndex": [
+                    0,
+                    1
+                ],
+                "controlIndex": [
+                    0,
+                    1
+                ]
             },
             "valueMapping": {
-                "OFF"    : {"index" : 0,    "label" : "@CP_OFF_EN_W", "_comment" : ""},
-                "ON"     : {"index" : 1,    "label" : "@CP_ON_EN_W", "_comment" : ""},
-                "IGNORE" : {"index" : 255,  "label" : "IGNORE", "_comment" : ""}
-            }     
+                "OFF": {
+                    "index": 0,
+                    "label": "@CP_OFF_EN_W",
+                    "_comment": ""
+                },
+                "ON": {
+                    "index": 1,
+                    "label": "@CP_ON_EN_W",
+                    "_comment": ""
+                },
+                "IGNORE": {
+                    "index": 255,
+                    "label": "IGNORE",
+                    "_comment": ""
+                }
+            }
         }
     },
     "ControlWifi": {
@@ -2026,11 +2546,13 @@
             }
         }
     },
-    "Push": [{
+    "Push": [
+        {
             "category": "PUSH_REF_FOOD_EXPIRED",
             "label": "@RE_SETTING_PUSH_STORED_PERIOD_W",
             "groupCode": "10102"
-        }, {
+        },
+        {
             "category": "PUSH_REF_STATE",
             "label": "@RE_SETTING_PUSH_PRODUCT_STATE_W",
             "groupCode": "10101"

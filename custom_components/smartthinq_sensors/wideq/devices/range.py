@@ -15,6 +15,8 @@ OVEN_TEMP_UNIT = {
     "1": TemperatureUnit.CELSIUS,
 }
 
+REFR_ROOT_DATA = "ovenState"
+
 ITEM_STATE_OFF = "@OV_STATE_INITIAL_W"
 
 ITEM_STATE_ENABLE = "ENABLE"
@@ -34,8 +36,8 @@ class RangeDevice(Device):
     async def poll(self) -> RangeStatus | None:
         """Poll the device's current state."""
 
-        res = await self._device_poll("ovenState")
-        _LOGGER.debug("_device_poll('ovenState'): %s", res)
+        res = await self._device_poll(REFR_ROOT_DATA)
+        _LOGGER.debug("RangeDevice._device_poll('%s'): %s", REFR_ROOT_DATA, res)
         if not res:
             return None
 
@@ -98,10 +100,9 @@ class RangeStatus(DeviceStatus):
     
     def _get_is_enabled(self, key: str):        
         status = self._data.get(key)
-        if status is None or status is not ITEM_STATE_ENABLE:
+        if status is None or status != ITEM_STATE_ENABLE:
             return False
         return True
-
 
     @property
     def is_on(self):
@@ -110,8 +111,8 @@ class RangeStatus(DeviceStatus):
         if status is None:
             return None
         if status == ITEM_STATE_OFF:
-            return True
-        return False
+            return False
+        return True
 
     @property
     def oven_internal_temp_unit(self):
@@ -174,4 +175,7 @@ class RangeStatus(DeviceStatus):
         return self.to_int_or_none(val)
     
     def _update_features(self):
-        _ = []
+        _ = [
+            self.oven_state,
+            self.oven_mode,
+        ]

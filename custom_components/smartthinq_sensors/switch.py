@@ -58,35 +58,11 @@ WASH_DEV_SWITCH: tuple[ThinQSwitchEntityDescription, ...] = (
 )
 REFRIGERATOR_SWITCH: tuple[ThinQSwitchEntityDescription, ...] = (
     ThinQSwitchEntityDescription(
-        key=RefrigeratorFeatures.ECOFRIENDLY,
-        name="Eco friendly",
-        icon="mdi:gauge-empty",
-        turn_off_fn=lambda x: x.device.set_eco_friendly(False),
-        turn_on_fn=lambda x: x.device.set_eco_friendly(True),
-        available_fn=lambda x: x.is_power_on,
-    ),
-    ThinQSwitchEntityDescription(
-        key=RefrigeratorFeatures.EXPRESSFRIDGE,
-        name="Express fridge",
-        icon="mdi:coolant-temperature",
-        turn_off_fn=lambda x: x.device.set_express_fridge(False),
-        turn_on_fn=lambda x: x.device.set_express_fridge(True),
-        available_fn=lambda x: x.device.set_values_allowed,
-    ),
-    ThinQSwitchEntityDescription(
-        key=RefrigeratorFeatures.EXPRESSMODE,
+        key=RefrigeratorFeatures.EXPRESS_MODE,
         name="Express mode",
         icon="mdi:snowflake",
         turn_off_fn=lambda x: x.device.set_express_mode(False),
         turn_on_fn=lambda x: x.device.set_express_mode(True),
-        available_fn=lambda x: x.device.set_values_allowed,
-    ),
-    ThinQSwitchEntityDescription(
-        key=RefrigeratorFeatures.ICEPLUS,
-        name="Ice plus",
-        icon="mdi:snowflake",
-        turn_off_fn=lambda x: x.device.set_ice_plus(False),
-        turn_on_fn=lambda x: x.device.set_ice_plus(True),
         available_fn=lambda x: x.device.set_values_allowed,
     ),
 )

@@ -28,7 +28,6 @@ ATTR_PAUSE = "device_pause"
 
 _LOGGER = logging.getLogger(__name__)
 
-
 @dataclass
 class ThinQButtonDescriptionMixin:
     """Mixin to describe a Button entity."""
@@ -71,7 +70,6 @@ BUTTON_ENTITIES = {
     **{dev_type: WASH_DEV_BUTTON for dev_type in WM_DEVICE_TYPES},
 }
 
-
 def _button_exist(
     lge_device: LGEDevice, button_desc: ThinQButtonEntityDescription
 ) -> bool:
@@ -81,7 +79,6 @@ def _button_exist(
         return True
 
     return False
-
 
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
@@ -114,7 +111,6 @@ async def async_setup_entry(
     entry.async_on_unload(
         async_dispatcher_connect(hass, LGE_DISCOVERY_NEW, _async_discover_device)
     )
-
 
 class LGEButton(CoordinatorEntity, ButtonEntity):
     """Class to control buttons for LGE device"""
