@@ -8,6 +8,8 @@ from ..core_async import ClientAsync
 from ..device import Device, DeviceStatus
 from ..device_info import DeviceInfo
 
+_LOGGER = logging.getLogger(__name__)
+
 OVEN_TEMP_UNIT = {
     "@OV_TERM_FAHRENHEIT_W": TemperatureUnit.FAHRENHEIT,
     "@OV_TERM_CELSIUS_W": TemperatureUnit.CELSIUS,
@@ -21,17 +23,12 @@ ITEM_STATE_OFF = "@OV_STATE_INITIAL_W"
 
 ITEM_STATE_ENABLE = "ENABLE"
 
-_LOGGER = logging.getLogger(__name__)
 
 class RangeDevice(Device):
     """A higher-level interface for a cooking range."""
 
     def __init__(self, client: ClientAsync, device_info: DeviceInfo):
         super().__init__(client, device_info, RangeStatus(self))
-
-    def reset_status(self):
-        self._status = RangeStatus(self)
-        return self._status
 
     async def poll(self) -> RangeStatus | None:
         """Poll the device's current state."""
@@ -44,6 +41,9 @@ class RangeDevice(Device):
         self._status = RangeStatus(self, res)
         return self._status
 
+    def reset_status(self):
+        self._status = RangeStatus(self)
+        return self._status
 
 class RangeStatus(DeviceStatus):
     """
@@ -60,7 +60,6 @@ class RangeStatus(DeviceStatus):
         super().__init__(device, data)
         self._oven_internal_temp_unit = None
         self._oven_user_temp_unit = None
-        #self._oven_target_temps: list | None = None
 
     def _get_oven_internal_temp_unit(self):
         """Get the used temperature unit."""

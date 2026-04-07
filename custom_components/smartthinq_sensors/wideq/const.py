@@ -81,6 +81,9 @@ class DehumidifierFeatures(StrEnum):
     TARGET_HUMIDITY = "target_humidity"
     WATER_TANK_FULL = "water_tank_full"
 
+class DryerFeatures(StrEnum):
+    """Features for LG Dryer devices."""
+    DRYER_STATE = "dryer_state"
 
 class RangeFeatures(StrEnum):
     """Features for LG Range devices."""

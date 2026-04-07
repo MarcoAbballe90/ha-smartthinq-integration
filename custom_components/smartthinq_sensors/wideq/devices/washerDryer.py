@@ -76,14 +76,12 @@ INVERTED_BITS = [WashDeviceFeatures.DOOROPEN]
 
 _LOGGER = logging.getLogger(__name__)
 
-
 class CourseType(IntEnum):
     """Washer device supported course type."""
 
     COURSE = 0
     SMARTCOURSE = 1
     OPCOURSE = 2
-
 
 _COURSE_KEYS = {
     CourseType.COURSE: [["Course", "APCourse"], ["courseType"]],
@@ -95,7 +93,6 @@ _COURSE_KEYS = {
 }
 _COURSE_TYPE = "courseType"
 _CURRENT_COURSE = "Current course"
-
 
 class WMDevice(Device):
     """A higher-level interface for washer and dryer."""

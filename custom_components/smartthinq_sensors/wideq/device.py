@@ -776,8 +776,6 @@ class Device:
             
             _LOGGER.debug("snapshot_data for %s: %s", self._device_info.name, snapshot_data)
 
-            if not self._device_info.isonline:
-                return None
             # do additional poll
             if additional_poll_interval_v2 > 0:
                 await self._additional_poll(additional_poll_interval_v2)

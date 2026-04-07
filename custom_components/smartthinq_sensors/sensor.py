@@ -535,7 +535,7 @@ def _sensor_exist(
     if sensor_desc.value_fn is not None:
         return True
     feature = sensor_desc.key
-    _LOGGER.debug("DEFINE SENSOR (lge_device.available_features): %s", lge_device.available_features)
+    #_LOGGER.debug("DEFINE SENSOR (lge_device.available_features): %s", lge_device.available_features)
     if feature in lge_device.available_features:
         return True
 

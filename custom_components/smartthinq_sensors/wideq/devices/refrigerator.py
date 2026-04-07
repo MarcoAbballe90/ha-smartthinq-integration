@@ -73,6 +73,17 @@ class RefrigeratorDevice(Device):
         self._freezer_temps = None
         self._freezer_ranges = None
 
+    async def poll(self) -> RefrigeratorStatus | None:
+        """Poll the device's current state."""
+
+        res = await self._device_poll(REFR_ROOT_DATA)
+        _LOGGER.debug("RefrigeratorDevice._device_poll('%s'): %s", REFR_ROOT_DATA, res)
+        if not res:
+            return None
+
+        self._status = RefrigeratorStatus(self, res)
+        return self._status
+
     """def _get_feature_info(self, item_key):
         config = self.model_info.config_value("visibleItems")
         if not config or not isinstance(config, list):
@@ -360,17 +371,6 @@ class RefrigeratorDevice(Device):
 
     def reset_status(self):
         self._status = RefrigeratorStatus(self)
-        return self._status
-
-    async def poll(self) -> RefrigeratorStatus | None:
-        """Poll the device's current state."""
-
-        res = await self._device_poll(REFR_ROOT_DATA)
-        _LOGGER.debug("RefrigeratorDevice._device_poll('%s'): %s", REFR_ROOT_DATA, res)
-        if not res:
-            return None
-
-        self._status = RefrigeratorStatus(self, res)
         return self._status
 
 class RefrigeratorStatus(DeviceStatus):

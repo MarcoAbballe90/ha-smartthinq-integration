@@ -13,6 +13,9 @@ from .device_info import (
     NetworkType,
     PlatformType,
 )
+from .devices.range import RangeDevice
+from .devices.refrigerator import RefrigeratorDevice
+from .devices.dryer import DryerDevice
 from .devices.ac import AirConditionerDevice
 from .devices.airpurifier import AirPurifierDevice
 from .devices.dehumidifier import DeHumidifierDevice
@@ -20,8 +23,6 @@ from .devices.dishwasher import DishWasherDevice
 from .devices.fan import FanDevice
 from .devices.hood import HoodDevice
 from .devices.microwave import MicroWaveDevice
-from .devices.range import RangeDevice
-from .devices.refrigerator import RefrigeratorDevice
 from .devices.styler import StylerDevice
 from .devices.washerDryer import WMDevice
 from .devices.waterheater import WaterHeaterDevice
@@ -48,6 +49,12 @@ def get_lge_device(
     if network_type != NetworkType.WIFI:
         return None
 
+    if device_type == DeviceType.RANGE:
+        return [RangeDevice(client, device_info)]
+    if device_type == DeviceType.REFRIGERATOR:
+        return [RefrigeratorDevice(client, device_info)]
+    if device_type == DeviceType.DRYER:
+        return [DryerDevice(client, device_info)]
     if device_type == DeviceType.AC:
         return [AirConditionerDevice(client, device_info, temp_unit)]
     if device_type == DeviceType.AIR_PURIFIER:
@@ -62,10 +69,6 @@ def get_lge_device(
         return [HoodDevice(client, device_info)]
     if device_type == DeviceType.MICROWAVE:
         return [MicroWaveDevice(client, device_info)]
-    if device_type == DeviceType.RANGE:
-        return [RangeDevice(client, device_info)]
-    if device_type == DeviceType.REFRIGERATOR:
-        return [RefrigeratorDevice(client, device_info)]
     if device_type == DeviceType.STYLER:
         return [StylerDevice(client, device_info)]
     if device_type == DeviceType.WATER_HEATER:

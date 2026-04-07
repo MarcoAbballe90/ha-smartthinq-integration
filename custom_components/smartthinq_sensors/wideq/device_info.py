@@ -10,7 +10,6 @@ KEY_DEVICE_ID = "deviceId"
 
 _LOGGER = logging.getLogger(__name__)
 
-
 class DeviceType(Enum):
     """The category of device."""
 
@@ -166,13 +165,11 @@ class DeviceInfo:
     def model_name(self) -> str:
         """Return the model name for the device."""
         name = self._get_data_value(["modelName", "modelNm"])
-        match name:
-            case "2REFT1DII4P_U":
-                return "GML960PYBE"
-            case "Y_VB_Y___W.B32QEUK":
-                return "F4R3710NSWW"
-            case _:
-                return name
+        if name == "2REFT1DII4P_U":
+            return "GML960PYBE"
+        if name == "Y_VB_Y___W.B32QEUK":
+            return "F4R3710NSWW"
+        return name
 
     @property
     def macaddress(self) -> str | None:
