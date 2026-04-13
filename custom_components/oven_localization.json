@@ -1,34 +1,7 @@
-[
-    {
-        "type": "MP",
-        "subtype": "Oven",
-        "lang": "it_WW",
-        "ver": "1.2",
-        "pack": {
-            "@OV_MP_WSED7613S_TERM_HOT_AIR_W": "Termoventilato",
-            "@OV_MP_WSED7613S_TERM_ECO_HOT_AIR_W": "Termoventilato Economico",
-            "@OV_MP_WSED7613S_TERM_TOP_BOTTOM_HEAT_W": "Statico",
-            "@OV_MP_WSED7613S_TERM_ROASTING_W": "Grill ventilato",
-            "@OV_MP_WSED7613S_TERM_PIZZA_MODE_W": "Pizza",
-            "@OV_MP_WSED7613S_TERM_FAN_ASSISTED_AIR_W": "Statico ventilato",
-            "@OV_MP_WSED7613S_TERM_LARGE_GRILL_W": "Grill largo",
-            "@OV_MP_WSED7613S_TERM_SMALL_GRILL_W": "Grill piccolo",
-            "@OV_MP_WSED7613S_TERM_BOTTOM_HEAT_W": "Base",
-            "@OV_MP_WSED7613S_TERM_ECO_TOP_BOTTOM_HEAT_W": "Statico Economico",
-            "@OV_MP_WSED7613S_TERM_AIR_FRY_W": "Air Fry",
-            "@OV_MP_WSED7613S_TERM_AIR_SOUSVIDE_W": "Air Sous-Vide",
-            "@OV_MP_WSED7613S_TERM_DRIED_FOOD_W": "Essicazione",
-            "@OV_MP_WSED7613S_TERM_WARM_W": "Caldo",
-            "@OV_MP_WSED7613S_TERM_DEFROST_W": "Scongelamento",
-            "@OV_MP_WSED7613S_TERM_EASYCLEAN_W": "Easy Clean",
-            "@OV_MP_WSED7613S_TERM_SELF_CLEAN_W": "Pyrolysis",
-            "@OV_MP_WSED7613S_TERM_PROOF_W": "Lievitazione"
-        }
-    },
-    {
+{
+    "PP": {
         "ver": "101.5",
         "subtype": "OV",
-        "type": "PP",
         "lang": "it-IT",
         "pack": {
             "@OV_UX30_PUSH_CLEAN_PERIOD_GUIDE_S": "Ti avvisa quando {{$0}} deve essere eseguito.",
@@ -3102,5 +3075,30 @@
             "@OV_TERM_BEFORE_PRIOR_TO_W": "Appena aggiunto",
             "@OV_UX30_RECIPE_RECOMMEND_W": "Ricette consigliate"
         }
+    },
+    "MP": {
+        "subtype": "Oven",
+        "lang": "it_WW",
+        "ver": "1.2",
+        "pack": {
+            "@OV_MP_WSED7613S_TERM_HOT_AIR_W": "Termoventilato",
+            "@OV_MP_WSED7613S_TERM_ECO_HOT_AIR_W": "Termoventilato Economico",
+            "@OV_MP_WSED7613S_TERM_TOP_BOTTOM_HEAT_W": "Statico",
+            "@OV_MP_WSED7613S_TERM_ROASTING_W": "Grill ventilato",
+            "@OV_MP_WSED7613S_TERM_PIZZA_MODE_W": "Pizza",
+            "@OV_MP_WSED7613S_TERM_FAN_ASSISTED_AIR_W": "Statico ventilato",
+            "@OV_MP_WSED7613S_TERM_LARGE_GRILL_W": "Grill largo",
+            "@OV_MP_WSED7613S_TERM_SMALL_GRILL_W": "Grill piccolo",
+            "@OV_MP_WSED7613S_TERM_BOTTOM_HEAT_W": "Base",
+            "@OV_MP_WSED7613S_TERM_ECO_TOP_BOTTOM_HEAT_W": "Statico Economico",
+            "@OV_MP_WSED7613S_TERM_AIR_FRY_W": "Air Fry",
+            "@OV_MP_WSED7613S_TERM_AIR_SOUSVIDE_W": "Air Sous-Vide",
+            "@OV_MP_WSED7613S_TERM_DRIED_FOOD_W": "Essicazione",
+            "@OV_MP_WSED7613S_TERM_WARM_W": "Caldo",
+            "@OV_MP_WSED7613S_TERM_DEFROST_W": "Scongelamento",
+            "@OV_MP_WSED7613S_TERM_EASYCLEAN_W": "Easy Clean",
+            "@OV_MP_WSED7613S_TERM_SELF_CLEAN_W": "Pyrolysis",
+            "@OV_MP_WSED7613S_TERM_PROOF_W": "Lievitazione"
+        }
     }
-]
+}

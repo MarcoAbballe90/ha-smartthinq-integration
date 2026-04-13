@@ -47,7 +47,6 @@ DEVICE_ICONS = {
 }
 
 WASH_DEVICE_TYPES = [
-    *WM_DEVICE_TYPES,
     DeviceType.DISHWASHER,
     DeviceType.STYLER,
 ]
@@ -273,6 +272,44 @@ class LGEWashDevice(LGEBaseDevice):
 
         return data
 
+class LGEDryerDevice(LGEBaseDevice):
+
+    @property
+    def state(self):
+        if self._api.state and self._api.state.is_on:
+            if self._api.state.internal_run_state == "INITIAL":
+                if self._api.state.standby_state == "ON":
+                    return "Standby"
+                else:
+                    return "Ready"
+            elif self._api.state.internal_run_state == "RUNNING":
+                return self._api.state.process
+            else:
+                return self._api.state.run_state
+        return "-"
+
+    @property
+    def current_course(self):
+        if self._api.state and self._api.state.is_on:
+            if self._api.state.internal_run_state != "POWEROFF":
+                course = self._api.state.current_course
+                if course:
+                    return course
+                """smart_course = self._api.state.current_smartcourse
+                if smart_course:
+                    return smart_course"""
+        return "-"
+    
+    @property
+    def extra_state_attributes(self):
+        """Return the optional state attributes."""
+        data = {
+        }
+        features = super().extra_state_attributes
+        data.update(features)
+
+        return data
+
 class LGERefrigeratorDevice(LGEBaseDevice):
     """A wrapper to monitor LGE Refrigerator devices"""
 
@@ -388,8 +425,8 @@ def get_wrapper_device(
     lge_device: LGEDevice, dev_type: DeviceType
 ) -> LGEBaseDevice | None:
     """Return a wrapper device for specific device type."""
-    if dev_type in WASH_DEVICE_TYPES:
-        return LGEWashDevice(lge_device)
+    if dev_type == DeviceType.DRYER:
+        return LGEDryerDevice(lge_device)
     if dev_type == DeviceType.REFRIGERATOR:
         return LGERefrigeratorDevice(lge_device)
     if dev_type == DeviceType.RANGE:
@@ -398,4 +435,6 @@ def get_wrapper_device(
         return LGETempDevice(lge_device)
     if dev_type in (DeviceType.HOOD, DeviceType.MICROWAVE):
         return LGEBaseDevice(lge_device)
+    if dev_type in WASH_DEVICE_TYPES:
+        return LGEWashDevice(lge_device)
     return None

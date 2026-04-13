@@ -334,7 +334,7 @@ class WMDevice(Device):
         ret_val = {}
         for key, value in course_infos.items():
             if enum_name := value.get("name"):
-                name = self.get_enum_text(enum_name)
+                name = self.localize(enum_name)
                 if name == enum_name:
                     name = value.get("_comment", enum_name)
             else:
@@ -989,7 +989,7 @@ class WMStatus(DeviceStatus):
         if not (course_key := self._device.get_course_key(CourseType.COURSE)):
             return StateOptions.NONE
         course = self.lookup_reference(course_key, ref_key="name")
-        return self._device.get_enum_text(course)
+        return self._device.localize(course)
 
     @property
     def current_smartcourse(self):
@@ -997,7 +997,7 @@ class WMStatus(DeviceStatus):
         if not (course_key := self._device.get_course_key(CourseType.SMARTCOURSE)):
             return StateOptions.NONE
         smart_course = self.lookup_reference(course_key, ref_key="name")
-        return self._device.get_enum_text(smart_course)
+        return self._device.localize(smart_course)
 
     def _get_time_info(self, keys: list[str]):
         """Return time info for specific key."""

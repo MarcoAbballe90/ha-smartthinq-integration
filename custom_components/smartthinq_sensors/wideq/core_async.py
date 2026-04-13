@@ -114,7 +114,9 @@ _LG_SSL_CIPHERS = (
 )
 
 _COMMON_LANG_URI_ID = "langPackCommonUri"
+_LOCALIZATION_FOLDER = "localization"
 _LOCAL_LANG_FILE = "local_lang_pack.json"
+_COMMON_LANG_FILE = "common_lang_pack.json"
 
 _API_USE_HOMES = False
 _HOME_ID = "homeId"
@@ -122,7 +124,6 @@ _HOME_NAME = "homeName"
 _HOME_CURRENT = "currentHomeYn"
 
 _LOGGER = logging.getLogger(__name__)
-
 
 def _oauth_info_from_result(result_info: dict) -> dict:
     """Return authentication info using an OAuth callback URL."""
@@ -148,16 +149,13 @@ def _oauth_info_from_result(result_info: dict) -> dict:
 
     return result
 
-
 def _create_lg_ssl_context() -> ssl.SSLContext:
     """Create a SSL context for LG ThinQ."""
     context = ssl.create_default_context()
     context.set_ciphers(_LG_SSL_CIPHERS)
     return context
 
-
 _SSL_CONTEXT = _create_lg_ssl_context()
-
 
 def lg_client_session() -> aiohttp.ClientSession:
     """Create an aiohttp client session to use with LG ThinQ."""
@@ -165,7 +163,6 @@ def lg_client_session() -> aiohttp.ClientSession:
         enable_cleanup_closed=ENABLE_CLEANUP_CLOSED, ssl_context=_SSL_CONTEXT
     )
     return aiohttp.ClientSession(connector=connector)
-
 
 class CoreAsync:
     """Class for Core SmartThinQ Api async calls."""
@@ -791,7 +788,6 @@ class CoreAsync:
 
         return out["access_token"], out["expires_in"]
 
-
 class Gateway:
     """ThinQ authentication gateway."""
 
@@ -898,7 +894,6 @@ class Gateway:
             "country": self.country,
             "language": self.language,
         }
-
 
 class Auth:
     """ThinQ authentication."""
@@ -1111,7 +1106,6 @@ class Auth:
             data["user_number"],
         )
 
-
 class Session:
     """ThinQ authentication session."""
 
@@ -1120,12 +1114,8 @@ class Session:
         self._auth = auth
         self.session_id = session_id
         self._homes: dict | None = None
-        self._common_lang_pack_url = None
-
-    @property
-    def common_lang_pack_url(self):
-        """Return common language pack url."""
-        return self._common_lang_pack_url
+        #self._common_lang_pack_version = None
+        #self._common_lang_pack_url = None
 
     async def refresh_auth(self) -> Auth:
         """Refresh associated authentication."""
@@ -1215,6 +1205,7 @@ class Session:
         Return information about the devices.
         """
         dashboard = await self.get2(f"service/homes/{home_id}")
+        _LOGGER.debug("GET: service/homes/%s: %s", home_id, dashboard)
         if not isinstance(dashboard, dict):
             _LOGGER.warning(
                 "LG API return invalid devices information for home_id %s: '%s'",
@@ -1223,11 +1214,11 @@ class Session:
             )
             return None
 
-        if self._common_lang_pack_url is None:
+        """if self._common_lang_pack_url is None:
             if _COMMON_LANG_URI_ID in dashboard:
                 self._common_lang_pack_url = dashboard[_COMMON_LANG_URI_ID]
             else:
-                self._common_lang_pack_url = self._auth.gateway.core.lang_pack_url
+                self._common_lang_pack_url = self._auth.gateway.core.lang_pack_url"""
         return as_list(dashboard.get("devices", []))
 
     async def get_devices_homes(self) -> list[dict] | None:
@@ -1260,11 +1251,11 @@ class Session:
                 "LG dashboard API return invalid devices information: '%s'", dashboard
             )
             return None
-        if self._common_lang_pack_url is None:
+        """if self._common_lang_pack_url is None:
             if _COMMON_LANG_URI_ID in dashboard:
                 self._common_lang_pack_url = dashboard[_COMMON_LANG_URI_ID]
             else:
-                self._common_lang_pack_url = self._auth.gateway.core.lang_pack_url
+                self._common_lang_pack_url = self._auth.gateway.core.lang_pack_url"""
         return as_list(dashboard.get("item", []))
 
     async def get_devices(self) -> list[dict] | None:
@@ -1433,7 +1424,6 @@ class Session:
         """Delete permission on V1 device after a control command."""
         await self.post("rti/delControlPermission", {"deviceId": device_id})
 
-
 class ClientAsync:
     """
     A higher-level API wrapper that provides a session more easily
@@ -1463,7 +1453,7 @@ class ClientAsync:
         # Cached model info data. This is a mapping from URLs to JSON
         # responses.
         self._model_url_info: dict[str, Any] = {}
-        self._common_lang_pack = None
+        #self._common_lang_pack = None
         self._local_lang_pack = None
 
         # Locale information used to discover a gateway, if necessary.
@@ -1776,17 +1766,65 @@ class ClientAsync:
                 return None
 
         return await asyncio.to_thread(_load_json_content)
-
-    async def common_lang_pack(self):
-        """Load JSON common lang pack from specific url."""
-        if self._devices is None:
+    
+    async def _load_json_lang_info(self, info_url: str):
+        """Load JSON data from specific url."""
+        if not info_url:
             return {}
-        if self._common_lang_pack is None and self._session:
-            self._common_lang_pack = (
-                await self._load_json_info(self._session.common_lang_pack_url)
-            ).get("pack", {})
-        return self._common_lang_pack
+        # 1. Estrazione del GUID dall'URL
+        # urlparse separa la parte 'https://domain/path' dai parametri '?'
+        path_parts = urlparse(info_url).path.split('/')
+        guid = path_parts[-1] if path_parts[-1] else path_parts[-2]
+        file_path = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)), _LOCALIZATION_FOLDER, f"{guid}.json"
+        )
+        if os.path.exists(file_path):
+            _LOGGER.debug("Caricamento file locale per GUID: %s", guid)
+            def _load_local_lang_pack() -> dict[str, dict]:
+                """Load content of local lang pack."""                
+                try:
+                    with open(file_path, "r", encoding="utf-8") as lang_file:
+                        return json.load(lang_file)
+                except (FileNotFoundError, json.JSONDecodeError):
+                    return {}
 
+            lang_pack = await asyncio.to_thread(_load_local_lang_pack)
+            _LOGGER.debug("Lang pack caricato!")
+            return lang_pack
+
+        # 4. Se non esiste o è corrotto, procediamo al download (codice originale)
+        self._check_connected()
+        content = await self._auth.gateway.core.http_get_bytes(info_url)
+
+        def _load_and_save_json_content():
+            """Decode, load and save as json the received content."""
+            try:
+                # we use charset_normalizer to detect correct encoding and convert to unicode string
+                str_content = str(from_bytes(content).best(), errors="replace")
+            except (LookupError, TypeError):
+                # A LookupError is raised if the encoding was not found which could
+                # indicate a misspelling or similar mistake.
+                #
+                # A TypeError can be raised if encoding is None
+                #
+                # So we try blindly encoding.
+                str_content = str(content, errors="replace")
+
+            enc_resp = str_content.encode()
+            try:
+                data = json.loads(enc_resp)
+                with open(file_path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2, ensure_ascii=False)
+                    _LOGGER.info("Nuovo file di localizzazione salvato: %s", file_path)
+                return data
+            except json.JSONDecodeError as ex:
+                _LOGGER.warning(
+                    "Failed to load json info file: %s - error: %s", info_url, ex
+                )
+                return None
+
+        return await asyncio.to_thread(_load_and_save_json_content)
+  
     async def local_lang_pack(self) -> dict[str, str]:
         """Load JSON local lang pack from local."""
         if self._local_lang_pack is not None:
@@ -1829,6 +1867,26 @@ class ClientAsync:
                     url,
                 )
             if not (model_url_info := await self._load_json_info(url)):
+                return None
+            self._model_url_info[url] = model_url_info
+        return self._model_url_info[url]
+    
+    async def localization_url_info(self, url, device=None):
+        """
+        For a DeviceInfo object, get a ModelInfo object describing
+        the model's capabilities.
+        """
+        if not url:
+            return {}
+        if url not in self._model_url_info:
+            if device:
+                _LOGGER.debug(
+                    "Loading model info for %s. Model: %s, Url: %s",
+                    device.name,
+                    device.model_name,
+                    url,
+                )
+            if not (model_url_info := await self._load_json_lang_info(url)):
                 return None
             self._model_url_info[url] = model_url_info
         return self._model_url_info[url]

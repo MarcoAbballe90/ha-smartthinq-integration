@@ -36,7 +36,12 @@ from .device_helpers import (
     get_entity_name,
     get_wrapper_device,
 )
-from .wideq import DehumidifierFeatures, DeviceType, WashDeviceFeatures
+from .wideq import (
+    DehumidifierFeatures,
+    DeviceType,
+    DryerFeatures,
+    WashDeviceFeatures,
+)
 
 # range sensor attributes
 ATTR_COOKTOP_STATE = "cooktop_state"
@@ -44,14 +49,12 @@ ATTR_OVEN_STATE = "oven_state"
 
 _LOGGER = logging.getLogger(__name__)
 
-
 @dataclass
 class ThinQBinarySensorEntityDescription(BinarySensorEntityDescription):
     """A class that describes ThinQ binary sensor entities."""
 
     icon_on: str | None = None
     value_fn: Callable[[Any], bool | str] | None = None
-
 
 WASH_DEV_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ThinQBinarySensorEntityDescription(
@@ -187,6 +190,14 @@ REFRIGERATOR_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ),"""
 )
 
+DRYER_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
+    ThinQBinarySensorEntityDescription(
+        key=DryerFeatures.REMOTE_START,
+        name="Avvio remoto",
+        entity_registry_enabled_default=False,
+    ),
+)
+
 DEHUMIDIFIER_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ThinQBinarySensorEntityDescription(
         key=DehumidifierFeatures.WATER_TANK_FULL,
@@ -195,10 +206,11 @@ DEHUMIDIFIER_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
 )
 
 BINARY_SENSOR_ENTITIES = {
-    DeviceType.DEHUMIDIFIER: DEHUMIDIFIER_BINARY_SENSORS,
     DeviceType.RANGE: RANGE_BINARY_SENSORS,
+    DeviceType.DRYER: DRYER_BINARY_SENSORS,
+    #DeviceType.DEHUMIDIFIER: DEHUMIDIFIER_BINARY_SENSORS,
     #DeviceType.REFRIGERATOR: REFRIGERATOR_BINARY_SENSORS,
-    **{dev_type: WASH_DEV_BINARY_SENSORS for dev_type in WASH_DEVICE_TYPES},
+    #**{dev_type: WASH_DEV_BINARY_SENSORS for dev_type in WASH_DEVICE_TYPES},
 }
 
 def _binary_sensor_exist(
@@ -213,7 +225,6 @@ def _binary_sensor_exist(
         return True
 
     return False
-
 
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
@@ -248,7 +259,6 @@ async def async_setup_entry(
     entry.async_on_unload(
         async_dispatcher_connect(hass, LGE_DISCOVERY_NEW, _async_discover_device)
     )
-
 
 class LGEBinarySensor(CoordinatorEntity, BinarySensorEntity):
     """Class to monitor binary sensors for LGE device"""

@@ -7,7 +7,6 @@ from datetime import time
 import logging
 from typing import Any, Callable
 
-from custom_components.smartthinq_sensors.wideq.const import RangeFeatures
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
@@ -56,13 +55,15 @@ from .device_helpers import (
 from .wideq import (
     SET_TIME_DEVICE_TYPES,
     WM_DEVICE_TYPES,
+    RefrigeratorFeatures,
+    RangeFeatures,
+    DryerFeatures,
+    WashDeviceFeatures,
     AirConditionerFeatures,
     AirPurifierFeatures,
     DehumidifierFeatures,
     DeviceType,
     MicroWaveFeatures,
-    RefrigeratorFeatures,
-    WashDeviceFeatures,
     WaterHeaterFeatures,
 )
 
@@ -185,7 +186,7 @@ REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         key=DEFAULT_SENSOR,
         icon=DEFAULT_ICON,
         value_fn=lambda x: x.power_state,
-    ),    
+    ),
     ThinQSensorEntityDescription(
         key=RefrigeratorFeatures.ICE_MAKER,
         name="Macchina del ghiaccio",
@@ -221,6 +222,37 @@ REFRIGERATOR_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         key=RefrigeratorFeatures.FRESHAIR_FILTER,
         name="Filtro dell'aria",
         icon="mdi:air-filter",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+)
+
+DRYER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
+    ThinQSensorEntityDescription(
+        key=DEFAULT_SENSOR,
+        icon=DEFAULT_ICON,
+        value_fn=lambda x: x.power_state,
+    ),
+    ThinQSensorEntityDescription(
+        key=DryerFeatures.RUN_STATE,
+        name="Stato",
+        icon="mdi:state-machine",
+        value_fn=lambda x: x.state,
+    ),
+    ThinQSensorEntityDescription(
+        key=ATTR_CURRENT_COURSE,
+        name="Programma",
+        icon="mdi:format-list-checks",
+        value_fn=lambda x: x.current_course,
+    ),
+    ThinQSensorEntityDescription(
+        key=DryerFeatures.DRY_LEVEL,
+        name="Asciugatura",
+        icon="mdi:air-purifier",
+    ),
+    ThinQSensorEntityDescription(
+        key=DryerFeatures.ERROR,
+        name="Errore",
+        icon="mdi:alert-circle-outline",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )
@@ -326,7 +358,7 @@ RANGE_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=RangeFeatures.OVEN_MODE,
         name="Programma",
-        icon="mdi:inbox-arrow-up",
+        icon="mdi:format-list-checks",
     ),
     ThinQSensorEntityDescription(
         key="oven_target_temp",
@@ -513,6 +545,7 @@ SENSOR_ENTITIES = {
     DeviceType.HOOD: HOOD_SENSORS,
     DeviceType.MICROWAVE: MICROWAVE_SENSORS,
     DeviceType.RANGE: RANGE_SENSORS,
+    DeviceType.DRYER: DRYER_SENSORS,
     DeviceType.REFRIGERATOR: REFRIGERATOR_SENSORS,
     DeviceType.WATER_HEATER: WATER_HEATER_SENSORS,
     **{dev_type: WASH_DEV_SENSORS for dev_type in WASH_DEVICE_TYPES},

@@ -645,6 +645,8 @@ class ModelInfoV2(ModelInfo):
         """Return data type in specific data."""
         if "dataType" in data:
             return data["dataType"].casefold()
+        if "ref" in data:
+            return TYPE_REFERENCE
         return None
 
     def value_type(self, name):
@@ -657,7 +659,7 @@ class ModelInfoV2(ModelInfo):
         """Check if a value key exist inside model info."""
         return name in self._data["MonitoringValue"]
 
-    def _data_root(self, name):
+    def _get_monitoring_value(self, name):
         """Return the data root for a specific value key."""
         if not self.value_exist(name):
             return None
@@ -670,12 +672,10 @@ class ModelInfoV2(ModelInfo):
         self, name: str, req_type: list | None = None
     ) -> EnumValue | RangeValue | BitValue | ReferenceValue | None:
         """Look up information about a name key."""
-        if not (data := self._data_root(name)):
+        if not (data := self._get_monitoring_value(name)):
             return None
         if not (data_type := self._get_data_type(data)):
-            if "ref" not in data:
-                return None
-            data_type = TYPE_REFERENCE
+            return None
 
         if req_type:
             if data_type not in req_type:
@@ -708,14 +708,14 @@ class ModelInfoV2(ModelInfo):
 
     def default(self, name):
         """Get the default value, if it exists, for a given value."""
-        if data := self._data_root(name):
+        if data := self._get_monitoring_value(name):
             return data.get("default")
 
         return None
 
     def enum_index(self, key, index) -> str | None:
         """Look up the friendly enum name for an indexed value."""
-        if not (data := self._data_root(key)):
+        if not (data := self._get_monitoring_value(key)):
             return None
         if not (data_type := self._get_data_type(data)):
             return None
@@ -732,7 +732,7 @@ class ModelInfoV2(ModelInfo):
 
     def target_key(self, key, value, target) -> str | None:
         """Look up target key inside a value."""
-        if not (data := self._data_root(key)):
+        if not (data := self._get_monitoring_value(key)):
             return None
 
         return data.get("targetKey", {}).get(target, {}).get(value)

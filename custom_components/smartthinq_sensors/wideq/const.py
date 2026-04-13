@@ -83,7 +83,14 @@ class DehumidifierFeatures(StrEnum):
 
 class DryerFeatures(StrEnum):
     """Features for LG Dryer devices."""
-    DRYER_STATE = "dryer_state"
+    RUN_STATE = "state"
+    STANDBY = "standby"
+    PROCESS = "processState"
+    #COURSE = "smartCourseDryer24inchBase"
+    DRY_LEVEL = "dryLevel"
+    ERROR = "error"
+    REMOTE_START = "remoteStart"
+    ECHO_HYBRID = "ecoHybrid"
 
 class RangeFeatures(StrEnum):
     """Features for LG Range devices."""

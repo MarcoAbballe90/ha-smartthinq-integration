@@ -56,7 +56,6 @@ class DeviceType(Enum):
     UNKNOWN = StateOptions.UNKNOWN
 
 WM_DEVICE_TYPES = [
-    DeviceType.DRYER,
     DeviceType.TOWER_DRYER,
     DeviceType.TOWER_WASHER,
     DeviceType.TOWER_WASHERDRYER,

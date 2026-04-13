@@ -496,13 +496,13 @@ class Device:
             
         # load model language pack
         if self._model_lang_pack is None:
-            self._model_lang_pack = await self._client.model_url_info(
+            self._model_lang_pack = await self._client.localization_url_info(
                 self._device_info.model_lang_pack_url
             )
 
         # load product language pack
         if self._product_lang_pack is None:
-            self._product_lang_pack = await self._client.model_url_info(
+            self._product_lang_pack = await self._client.localization_url_info(
                 self._device_info.product_lang_pack_url
             )
 
@@ -705,7 +705,7 @@ class Device:
                 _LOGGER.debug("Error calling pre_update function: %s", exc)
 
         state = await self._mon.refresh(query_device)
-        
+
         if state and isinstance(state, dict) and "online" in state:
             self._device_info.update_data_value("online", state["online"])
 
@@ -790,6 +790,9 @@ class Device:
             
             _LOGGER.debug("snapshot_data for %s: %s", self._device_info.name, snapshot_data)
 
+            if not self.device_info.isonline:
+               return None
+        
             # do additional poll
             if additional_poll_interval_v2 > 0:
                 await self._additional_poll(additional_poll_interval_v2)
@@ -832,22 +835,22 @@ class Device:
             self._available_features[feature_name] = title
         return title
 
-    def get_enum_text(self, enum_name):
+    def localize(self, key):
         """Get the text associated to an enum value from language pack."""
-        if not enum_name:
+        if not key:
             return StateOptions.NONE
 
-        text_value = LOCAL_LANG_PACK.get(enum_name)
+        text_value = LOCAL_LANG_PACK.get(key)
         if not text_value and self._local_lang_pack:
-            text_value = self._local_lang_pack.get(enum_name)
+            text_value = self._local_lang_pack.get(key)
         if not text_value and self._model_lang_pack:
             if LANG_PACK in self._model_lang_pack:
-                text_value = self._model_lang_pack[LANG_PACK].get(enum_name)
+                text_value = self._model_lang_pack[LANG_PACK].get(key)
         if not text_value and self._product_lang_pack:
             if LANG_PACK in self._product_lang_pack:
-                text_value = self._product_lang_pack[LANG_PACK].get(enum_name)
+                text_value = self._product_lang_pack[LANG_PACK].get(key)
         if not text_value:
-            text_value = enum_name
+            text_value = key
 
         return text_value
 
@@ -1043,6 +1046,27 @@ class DeviceStatus:
     def key_exist(self, keys: str | list[str]) -> bool:
         """Check if one of provided keys exists in associated model info."""
         return bool(self.get_model_info_key(keys))
+    
+    def register_enum_feature(self, key):
+        _LOGGER.debug("GET PROPERTY FEATURE (ENUM): %s", key)
+        status = self.lookup_enum(key)
+        if status is None:
+            return None
+        return self._update_feature(key, status)
+    
+    def register_bit_feature(self, key):
+        _LOGGER.debug("GET PROPERTY FEATURE (BIT): %s", key)
+        status = self.lookup_bit(key)
+        if status is None:
+            return None
+        return self._update_feature(key, status)
+    
+    def register_reference_feature(self, key):
+        _LOGGER.debug("GET PROPERTY FEATURE (REFERENCE): %s", key)
+        status = self.lookup_enum(key)
+        if status is None:
+            return None
+        return self._update_feature(key, status)
 
     def lookup_enum(self, key, data_is_num=False):
         """Lookup value for a specific key of type enum."""
@@ -1136,7 +1160,7 @@ class DeviceStatus:
         if status is None or not get_text:
             value = status
         else:
-            value = self._device.get_enum_text(status)
+            value = self._device.localize(status)
 
         self._device_features[key] = value
         return value

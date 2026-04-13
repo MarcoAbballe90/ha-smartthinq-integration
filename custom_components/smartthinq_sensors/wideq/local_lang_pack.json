@@ -19,6 +19,7 @@
         "@WM_STATE_ERROR_W": "Error"
     },
     "it-IT": {
+        "ERROR_NOERROR": "Nessuno",
         "@OV_STATE_INITIAL_W": "Spento",
         "@OV_MP_WSED7613S_TERM_ECO_HOT_AIR_W": "Termoventilato Eco",
         "@OV_MP_WSED7613S_TERM_SELF_CLEAN_W": "Pulizia pirolitica",

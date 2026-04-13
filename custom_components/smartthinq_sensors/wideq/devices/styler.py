@@ -140,7 +140,7 @@ class StylerStatus(DeviceStatus):
         else:
             course_key = ["APCourse", "Course"]
         course = self.lookup_reference(course_key, ref_key="name")
-        return self._device.get_enum_text(course)
+        return self._device.localize(course)
 
     @property
     def current_smartcourse(self):
@@ -150,7 +150,7 @@ class StylerStatus(DeviceStatus):
         else:
             course_key = "SmartCourse"
         smart_course = self.lookup_reference(course_key, ref_key="name")
-        return self._device.get_enum_text(smart_course)
+        return self._device.localize(smart_course)
 
     def _get_time_info(self, keys: list[str]):
         """Return time info for specific key."""

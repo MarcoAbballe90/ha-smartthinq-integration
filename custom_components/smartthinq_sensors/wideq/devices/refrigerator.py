@@ -509,7 +509,7 @@ class RefrigeratorStatus(DeviceStatus):
             state = self.lookup_enum("DoorOpenState")
         if not state:
             return StateOptions.NONE
-        return self._device.get_enum_text(state)
+        return self._device.localize(state)
 
     @property
     def eco_friendly_enabled(self):
@@ -555,7 +555,7 @@ class RefrigeratorStatus(DeviceStatus):
         state = self.lookup_enum(["SmartSavingModeStatus", "smartSavingRun"])
         if not state:
             return StateOptions.NONE
-        return self._device.get_enum_text(state)
+        return self._device.localize(state)
 
     @property
     def smart_saving_mode(self):
@@ -637,7 +637,7 @@ class RefrigeratorStatus(DeviceStatus):
         state = self.lookup_enum("LockingStatus")
         if not state:
             return StateOptions.NONE
-        return self._device.get_enum_text(state)
+        return self._device.localize(state)
 
     @property
     def active_saving_status(self):

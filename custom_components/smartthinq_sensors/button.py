@@ -34,7 +34,6 @@ class ThinQButtonDescriptionMixin:
 
     press_action_fn: Callable[[Any], Awaitable[None]]
 
-
 @dataclass
 class ThinQButtonEntityDescription(
     ButtonEntityDescription, ThinQButtonDescriptionMixin
@@ -43,7 +42,6 @@ class ThinQButtonEntityDescription(
 
     available_fn: Callable[[Any], bool] | None = None
     related_feature: str | None = None
-
 
 WASH_DEV_BUTTON: tuple[ThinQButtonEntityDescription, ...] = (
     ThinQButtonEntityDescription(
